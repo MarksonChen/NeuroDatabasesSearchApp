@@ -1,4 +1,8 @@
 # NeuroDatabasesSearchApp [In Progress]
+About this assignment:
+1. Below is description of our project.
+2. Examples of calling API from java are five Main files under src/app, each contains a method is made by one teammate that call from API and get results.
+
 A simple Java application that combines multiple neuroscience databases into one search result!
 
 ### Included Databases:
