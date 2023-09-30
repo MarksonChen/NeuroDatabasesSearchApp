@@ -5,7 +5,7 @@ import org.json.*;
 import java.io.IOException;
 import java.util.*;
 
-public class Main_Zijie_Ma {
+public class MainZijieMa {
     public static void main(String[] args) {
         // Code for Week 3 Activity: Exploring APIs
         // Call an API using okhttp3, and output the response
