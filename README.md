@@ -25,9 +25,9 @@ A simple Java application that combines multiple neuroscience databases into one
 NeuroML-DB: https://neuroml-db.org/api
 ModelDB: https://modeldb.science/api
 
-### Exmample Call to API using [hoppscotch.io](https://hoppscotch.io/):
-<img width="1031" alt="image" src="https://github.com/MarksonChen/NeuroDatabasesSearchApp/assets/46666959/83f72b5a-f9fd-4488-9ee4-04229e3a5430">
-
-### Exmample Call to API using OkHttp in Java:
+### Example Call to API using OkHttp in Java:
 See [src/app/Main.java](https://github.com/MarksonChen/NeuroDatabasesSearchApp/blob/master/src/app/Main.java)
 <img width="1512" alt="image" src="https://github.com/MarksonChen/NeuroDatabasesSearchApp/assets/46666959/49a03ec2-0b29-4c1c-8719-bfd93ee26215">
+
+### Example Call to API using [hoppscotch.io](https://hoppscotch.io/):
+<img width="1031" alt="image" src="https://github.com/MarksonChen/NeuroDatabasesSearchApp/assets/46666959/83f72b5a-f9fd-4488-9ee4-04229e3a5430">
