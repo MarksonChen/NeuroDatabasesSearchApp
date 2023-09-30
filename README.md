@@ -3,13 +3,14 @@ A simple Java application that combines multiple neuroscience databases into one
 
 ### Included Databases:
 [NeuroML-DB](https://neuroml-db.org/): a database of computational models of neurons and networks that makes it easier to evaluate and reuse these models.  
+
 [ModelDB](https://modeldb.science/): a curated database of published models in the broad domain of computational neuroscience.
 
-[NIMH Data Archive](https://nda.nih.gov/nda/apis.html)
+[NIMH Data Archive](https://nda.nih.gov/nda/apis.html): 
 
-[OpenNeuro](https://openneuro.org/)
+[OpenNeuro](https://openneuro.org/): 
 
-[EBRAINS](https://www.ebrains.eu/)
+[EBRAINS](https://www.ebrains.eu/): 
 
 ### Features:
 1. Advance Search:
@@ -25,11 +26,14 @@ A simple Java application that combines multiple neuroscience databases into one
     - When you open the application again, the saved search results will be reloaded
   
 ### Database API Documentations 
+
 NeuroML-DB: https://neuroml-db.org/api
+
 ModelDB: https://modeldb.science/api
 
 ### Example Call to API using OkHttp in Java:
-See [src/app/Main.java](https://github.com/MarksonChen/NeuroDatabasesSearchApp/blob/master/src/app/Main.java)
+**See [src/app/Main.java](https://github.com/MarksonChen/NeuroDatabasesSearchApp/blob/master/src/app/Main.java)**
+
 <img width="1512" alt="image" src="https://github.com/MarksonChen/NeuroDatabasesSearchApp/assets/46666959/49a03ec2-0b29-4c1c-8719-bfd93ee26215">
 
 ### Example Call to API using [hoppscotch.io](https://hoppscotch.io/):
