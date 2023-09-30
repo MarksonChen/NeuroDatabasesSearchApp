@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Restructured folders">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Added UI Dependency">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +32,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Merging master",
     "last_opened_file_path": "/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp/src/main/java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.16331658",
@@ -72,7 +70,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696041060553</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added UI Dependency">
+      <option name="closed" value="true" />
+      <created>1696081355707</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696081355707</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added UI Dependency">
+      <option name="closed" value="true" />
+      <created>1696087079613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696087079613</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated starter code for Week 3 Activity" />
     <MESSAGE value="Restructured folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructured folders" />
+    <MESSAGE value="Added UI Dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UI Dependency" />
   </component>
 </project>
