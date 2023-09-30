@@ -4,8 +4,11 @@ A simple Java application that combines multiple neuroscience databases into one
 ### Included Databases:
 [NeuroML-DB](https://neuroml-db.org/): a database of computational models of neurons and networks that makes it easier to evaluate and reuse these models.  
 [ModelDB](https://modeldb.science/): a curated database of published models in the broad domain of computational neuroscience.
+
 [NIMH Data Archive](https://nda.nih.gov/nda/apis.html)
+
 [OpenNeuro](https://openneuro.org/)
+
 [EBRAINS](https://www.ebrains.eu/)
 
 ### Features:
