@@ -6,7 +6,7 @@ A simple Java application that combines multiple neuroscience databases into one
     - You can use AND / OR to make precise searches
     - You can filter the search results by date range, data size, etc.
 2. Display Views:
-    - You can sort search results from all databases in an integrated fashion;
+    - You can display search results from all databases together in an integrated fashion;
     - Or, you can display the results from each database independently
 3. Download Data:
     - You can download data like models, experiment datasets, and neuron reconstructions from the search results
@@ -24,3 +24,5 @@ A simple Java application that combines multiple neuroscience databases into one
 [OpenNeuro](https://openneuro.org/)
 
 [EBRAINS](https://www.ebrains.eu/) 
+
+### [Clean Architecture Design of This Application](https://www.processon.com/view/link/65348ce94cbc21617d71d821)
