@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Class name bug fix" />
+    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Package bug fix">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainFelixPeng.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainHaochenDing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainMarksonChen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainZihengLin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainZijieMa.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,11 +52,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.16331658&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.13986015&quot;,
@@ -61,6 +70,26 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="NeuroDatabasesSearchApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,6 +99,17 @@
       <option name="presentableId" value="Default" />
       <updated>1696022295612</updated>
       <workItem from="1696095058211" duration="1204000" />
+      <workItem from="1697927163579" duration="42000" />
+      <workItem from="1697927284419" duration="94000" />
+      <workItem from="1697927394196" duration="2538000" />
+      <workItem from="1698024578435" duration="607000" />
+      <workItem from="1698100469976" duration="856000" />
+      <workItem from="1698541223461" duration="5000" />
+      <workItem from="1698541266335" duration="174000" />
+      <workItem from="1698636155578" duration="234000" />
+      <workItem from="1699679309960" duration="153000" />
+      <workItem from="1699679471870" duration="65000" />
+      <workItem from="1699679541913" duration="1129000" />
     </task>
     <task id="LOCAL-00001" summary="Updated starter code for Week 3 Activity">
       <option name="closed" value="true" />
@@ -111,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696097218848</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Package bug fix">
+      <option name="closed" value="true" />
+      <created>1696097690233</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696097690233</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +181,7 @@
     <MESSAGE value="Restructured folders" />
     <MESSAGE value="Added UI Dependency" />
     <MESSAGE value="Class name bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Class name bug fix" />
+    <MESSAGE value="Package bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Package bug fix" />
   </component>
 </project>
