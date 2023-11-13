@@ -98,7 +98,13 @@ public class ControllerFactory {
     // The methods have default visibility, aka "package private"
 
     SwitchViewController createSwitchViewController() {
-        return null;
+        // Presenter depends on ViewModel
+        SwitchViewOutputBoundary switchViewPresenter = new SwitchViewPresenter(viewManagerModel);
+        // Interactor depends on Presenter (and optionally, DAO)
+        SwitchViewInputBoundary switchViewInteractor = new SwitchViewInteractor(switchViewPresenter);
+        // Controller depends on Interactor
+        return new SwitchViewController(switchViewInteractor);
+        // View depends on Controller
     }
 
     SwitchResultsPanelController createSwitchResultsPanelController() {

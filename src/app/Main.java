@@ -73,15 +73,32 @@ public class Main {
         ToggleDisplayOptionController toggleDisplayOptionController =   factory.createToggleDisplayOptionController();
 
 
-        //TODO: Main Frame
+        MainFrame mainFrame = new MainFrame(mainFrameViewModel);
+        //TODO: MenuBar
+
+        CardLayout cardLayout = new CardLayout();
+        JPanel views = new JPanel(cardLayout);
+        mainFrame.add(views);
 
         //TODO: Views
+        FrontPageView frontPageView = new FrontPageView(frontPageViewModel, switchViewController, openWebsiteController);
+        views.add(frontPageView, FrontPageViewModel.VIEW_NAME);
 
-        //TODO: Frame Manager
+        SearchView searchView = new SearchView(searchViewModel, switchViewController,
+                switchResultsPanelController, queryAllController, queryOneController, toggleDisplayOptionController);
+        views.add(searchView, SearchViewModel.VIEW_NAME);
+
+        new ViewManager(views, cardLayout, viewManagerModel); // Finished adding views
+
+
+        //TODO: Frame Manager, StarredView, HistoryView
 
         // there should be a loadFromDAOController.execute();
         // to load data from the 3 DAOs into history view, star view, and resultsPanels
 
+
+        mainFrame.init();
+        switchViewController.execute(FrontPageViewModel.VIEW_NAME);
     }
 
     private static void configureUI() {

@@ -18,4 +18,7 @@ import java.util.LinkedHashMap;
 
 public class SearchView extends JPanel {
 
+    public SearchView(SearchViewModel searchViewModel, SwitchViewController switchViewController, SwitchResultsPanelController switchResultsPanelController, QueryAllController queryAllController, QueryOneController queryOneController, ToggleDisplayOptionController toggleDisplayOptionController) {
+
+    }
 }
