@@ -4,24 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Package bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainFelixPeng.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainHaochenDing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainMarksonChen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainZihengLin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainZijieMa.java" beforeDir="false" />
+    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Added JUnit dependency + SwitchView tests">
+      <change beforePath="$PROJECT_DIR$/src/use_case/switch_view/SwitchViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_case/switch_view/SwitchViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,32 +43,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.16331658&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.13986015&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "markson",
+    "last_opened_file_path": "/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp/resources/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.16331658",
+    "project.structure.side.proportion": "0.13986015",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="use_case.switch_view" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.use_case.switch_view in NeuroDatabasesSearchApp">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="NeuroDatabasesSearchApp" />
@@ -84,8 +91,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SwitchViewInteractorTest.successTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NeuroDatabasesSearchApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.switch_view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.switch_view" />
+      <option name="MAIN_CLASS_NAME" value="use_case.switch_view.SwitchViewInteractorTest" />
+      <option name="METHOD_NAME" value="successTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="use_case.switch_view in NeuroDatabasesSearchApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NeuroDatabasesSearchApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.switch_view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.switch_view" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.use_case.switch_view in NeuroDatabasesSearchApp" />
+        <item itemvalue="JUnit.SwitchViewInteractorTest.successTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -109,7 +148,11 @@
       <workItem from="1698636155578" duration="234000" />
       <workItem from="1699679309960" duration="153000" />
       <workItem from="1699679471870" duration="65000" />
-      <workItem from="1699679541913" duration="1129000" />
+      <workItem from="1699679541913" duration="5714000" />
+      <workItem from="1699746497667" duration="4567000" />
+      <workItem from="1700099968250" duration="594000" />
+      <workItem from="1700256884097" duration="4096000" />
+      <workItem from="1700264081468" duration="1039000" />
     </task>
     <task id="LOCAL-00001" summary="Updated starter code for Week 3 Activity">
       <option name="closed" value="true" />
@@ -159,7 +202,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696097690233</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Translated the finalized version of the complete UML diagram for our project into empty classes &amp; completed interfaces">
+      <option name="closed" value="true" />
+      <created>1699681566179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699681566179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added JUnit dependency + SwitchView tests">
+      <option name="closed" value="true" />
+      <created>1700264887955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700264887955</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +241,19 @@
     <MESSAGE value="Added UI Dependency" />
     <MESSAGE value="Class name bug fix" />
     <MESSAGE value="Package bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Package bug fix" />
+    <MESSAGE value="Translated the finalized version of the complete UML diagram for our project into empty classes &amp; completed interfaces" />
+    <MESSAGE value="Added JUnit dependency + SwitchView tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JUnit dependency + SwitchView tests" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NeuroDatabasesSearchApp$SwitchViewInteractorTest_successTest.ic" NAME="SwitchViewInteractorTest.successTest Coverage Results" MODIFIED="1700264756601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.switch_view.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/NeuroDatabasesSearchApp$Main.ic" NAME="Main Coverage Results" MODIFIED="1700264728636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/NeuroDatabasesSearchApp$use_case_switch_view_in_NeuroDatabasesSearchApp.ic" NAME="use_case.switch_view in NeuroDatabasesSearchApp Coverage Results" MODIFIED="1700264767324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.switch_view.*</FILTER>
+    </SUITE>
   </component>
 </project>
