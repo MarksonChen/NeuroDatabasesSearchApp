@@ -8,17 +8,22 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements PropertyChangeListener {
     private final MainFrameViewModel mainFrameViewModel;
 
     public MainFrame(MainFrameViewModel mainFrameViewModel) {
         super(MainFrameViewModel.FRAME_TITLE);
         this.mainFrameViewModel = mainFrameViewModel;
-//        mainFrameViewModel.addPropertyChangeListener(this);
+        mainFrameViewModel.addPropertyChangeListener(this);
 
         // We can move views-related things here
         // But by SRP, we choose to keep everything related to "hooking everything together"
         // in the Main method.
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        // TODO: Potentially used for displaying error messages
     }
 
     public void init() {
@@ -29,4 +34,3 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 }
-

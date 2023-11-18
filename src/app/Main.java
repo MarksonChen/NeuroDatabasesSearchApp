@@ -14,6 +14,8 @@ import use_case.star.StarController;
 import use_case.switch_results_panel.SwitchResultsPanelController;
 import use_case.switch_view.SwitchViewController;
 import use_case.toggle_display_option.ToggleDisplayOptionController;
+import view.MenuBar;
+import view.search_view_components.ScrollResultsPanel;
 import view_model.*;
 import use_case.open_website.WebDataAccessInterface;
 import use_case.query.QueryDataAccessInterface;
@@ -73,18 +75,28 @@ public class Main {
         ToggleDisplayOptionController toggleDisplayOptionController =   factory.createToggleDisplayOptionController();
 
 
+        //Main Frame
         MainFrame mainFrame = new MainFrame(mainFrameViewModel);
-        //TODO: MenuBar
+        MenuBar menuBar = new MenuBar(openFrameController, openWebsiteController);
+        mainFrame.setJMenuBar(menuBar);
 
         CardLayout cardLayout = new CardLayout();
         JPanel views = new JPanel(cardLayout);
         mainFrame.add(views);
 
-        //TODO: Views
+        //Views
         FrontPageView frontPageView = new FrontPageView(frontPageViewModel, switchViewController, openWebsiteController);
         views.add(frontPageView, FrontPageViewModel.VIEW_NAME);
-
-        SearchView searchView = new SearchView(searchViewModel, switchViewController,
+        // There are two sets of result panels because there are two views the user can choose to display the data in
+        // However, Swing does not allow the same component to be added to two different places.
+        // Hooking every pair of result panels to the same model ensures synchronized updates of the two result panels.
+        ScrollResultsPanel[] tabbedViewResultPanels = new ScrollResultsPanel[Database.length];
+        ScrollResultsPanel[] singleViewResultPanels = new ScrollResultsPanel[Database.length];
+        for (int i = 0; i < Database.length; i++) {
+            tabbedViewResultPanels[i] = new ScrollResultsPanel(searchViewModel, resultsPanelModels[i], queryOneController, fillDetailController, starController, openWebsiteController);
+            singleViewResultPanels[i] = new ScrollResultsPanel(searchViewModel, resultsPanelModels[i], queryOneController, fillDetailController, starController, openWebsiteController);
+        }
+        SearchView searchView = new SearchView(tabbedViewResultPanels, singleViewResultPanels, searchViewModel, switchViewController,
                 switchResultsPanelController, queryAllController, queryOneController, toggleDisplayOptionController);
         views.add(searchView, SearchViewModel.VIEW_NAME);
 
@@ -102,7 +114,13 @@ public class Main {
     }
 
     private static void configureUI() {
-
+        FlatLightLaf.setup();
+        UIManager.put("TextComponent.arc", 4);
+        UIManager.put("ScrollBar.width", 13);
+        UIManager.put("TabbedPane.showTabSeparators", true);
+        UIManager.getLookAndFeelDefaults()
+                .put("defaultFont", new Font("Helventica", Font.PLAIN, 15));
+//        System.setProperty("flatlaf.uiScale", "1.5");
     }
 
 }
