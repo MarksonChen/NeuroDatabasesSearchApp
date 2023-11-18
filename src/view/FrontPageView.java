@@ -10,19 +10,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FrontPageView extends JPanel {
-    private final JButton appTitle, searchButton;
+
 
     public FrontPageView(FrontPageViewModel frontPageViewModel, SwitchViewController switchViewController, OpenWebsiteController openWebsiteController) {
-        appTitle = new JButton("App Title");
-        searchButton = new JButton("Switch to search view");
+        JButton appTitle = new ImageButton(FrontPageViewModel.TITLE_BUTTON_IMAGE_PATH, FrontPageViewModel.TITLE_BUTTON_IMAGE_SCALE);
+        JButton searchButton = new ImageButton(FrontPageViewModel.SEARCH_BUTTON_IMAGE_PATH, FrontPageViewModel.SEARCH_BUTTON_IMAGE_SCALE);
 
-        appTitle.addActionListener(evt ->
-                {/*TODO*/}
-        );
-
-        searchButton.addActionListener(evt ->
-            switchViewController.execute(SearchViewModel.VIEW_NAME)
-        );
+        // TODO add listeners
 
         searchButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         appTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
