@@ -71,6 +71,10 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         ScrollResultsPanelState state = (ScrollResultsPanelState) evt.getNewValue();
         switch (evt.getPropertyName()) {
             // TODO: as part of the various use cases!!
+            case ScrollResultsPanelModel.REFRESH_ALL -> {
+                displayPage(state.getFetchedDataList(), state.getDataIsStarredList(), state.getTotalResults(), state.getResultsPerPage(), state.getCurrentPage());
+            }
+            // Query Success Action
 
         }
     }
