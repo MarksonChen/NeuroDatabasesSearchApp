@@ -2,9 +2,7 @@ package use_case.query.query_one;
 
 import entity.FetchedData;
 import entity.Query;
-import use_case.HistoryDataAccessInterface;
 import use_case.query.QueryDataAccessInterface;
-import use_case.star.StarDataAccessInterface;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,9 +30,12 @@ public class QueryOneInteractor implements QueryOneInputBoundary{
             return;
         }
         // Star & History may appear here
+        List<Boolean> dataStarredStateList = null;
+        List<Query> historyQueryList = null;
+
         try {
             List<FetchedData> fetchedData = queryDAO.queryOne(inputData.getDatabase(), query, inputData.getResultPerPage(), inputData.getPage());
-            QueryOneOutputData Output = new QueryOneOutputData();
+            QueryOneOutputData Output = new QueryOneOutputData(inputData.getDatabase(), fetchedData, dataStarredStateList, historyQueryList, queryDAO.getQueryOneTotalResults(), inputData.getPage(), inputData.getKeywords());
             queryPresent.prepareSuccessView(Output);
         }
         catch (IOException e){
