@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Added Javadoc for the SwitchView use case." />
+    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Started from the ControllerFactory of use case ClearHistory.">
+      <change beforePath="$PROJECT_DIR$/src/use_case/star/StarPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_case/star/StarPresenter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +229,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700265190291</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Started from the ControllerFactory of use case Star.">
+      <option name="closed" value="true" />
+      <created>1700524889012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700524889012</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Started from the ControllerFactory of use case ClearHistory.">
+      <option name="closed" value="true" />
+      <created>1700524941763</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700524941763</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +271,9 @@
     <MESSAGE value="Translated the finalized version of the complete UML diagram for our project into empty classes &amp; completed interfaces" />
     <MESSAGE value="Added JUnit dependency + SwitchView tests" />
     <MESSAGE value="Added Javadoc for the SwitchView use case." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc for the SwitchView use case." />
+    <MESSAGE value="Started from the ControllerFactory of use case Star." />
+    <MESSAGE value="Started from the ControllerFactory of use case ClearHistory." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started from the ControllerFactory of use case ClearHistory." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NeuroDatabasesSearchApp$SwitchViewInteractorTest_successTest.ic" NAME="SwitchViewInteractorTest.successTest Coverage Results" MODIFIED="1700264756601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
