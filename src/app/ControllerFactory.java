@@ -134,7 +134,9 @@ public class ControllerFactory {
     }
 
     ClearHistoryController createClearHistoryController() {
-        return null;
+        ClearHistoryOutputBoundary clearHistoryPresenter = new ClearHistoryPresenter(historyViewModel);
+        ClearHistoryInputBoundary clearHistoryInteractor = new ClearHistoryInteractor(clearHistoryPresenter, historyDAO);
+        return new ClearHistoryController(clearHistoryInteractor);
     }
 
     ReuseHistoryQueryController createReuseHistoryQueryController() {
