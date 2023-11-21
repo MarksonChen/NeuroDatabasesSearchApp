@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Started from the ControllerFactory of use case ClearHistory.">
-      <change beforePath="$PROJECT_DIR$/src/use_case/star/StarPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_case/star/StarPresenter.java" afterDir="false" />
+    <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Implement ScrollResultsPanelState and ScrollResultsPanelState.getFetchedDataList and ScrollResultsPanelState.toggleStarOfData.">
+      <change beforePath="$PROJECT_DIR$/src/view_model/StarredViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/StarredViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700524941763</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implement StarPresenter StarPresenter.prepareSuccessView.">
+      <option name="closed" value="true" />
+      <created>1700526794821</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700526794821</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implement ScrollResultsPanelState and ScrollResultsPanelState.getFetchedDataList and ScrollResultsPanelState.toggleStarOfData.">
+      <option name="closed" value="true" />
+      <created>1700527081411</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700527081411</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +289,9 @@
     <MESSAGE value="Added Javadoc for the SwitchView use case." />
     <MESSAGE value="Started from the ControllerFactory of use case Star." />
     <MESSAGE value="Started from the ControllerFactory of use case ClearHistory." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started from the ControllerFactory of use case ClearHistory." />
+    <MESSAGE value="Implement StarPresenter StarPresenter.prepareSuccessView." />
+    <MESSAGE value="Implement ScrollResultsPanelState and ScrollResultsPanelState.getFetchedDataList and ScrollResultsPanelState.toggleStarOfData." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement ScrollResultsPanelState and ScrollResultsPanelState.getFetchedDataList and ScrollResultsPanelState.toggleStarOfData." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NeuroDatabasesSearchApp$SwitchViewInteractorTest_successTest.ic" NAME="SwitchViewInteractorTest.successTest Coverage Results" MODIFIED="1700264756601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

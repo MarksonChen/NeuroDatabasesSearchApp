@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class ScrollResultsPanelModel implements ObserverViewModel{
+    public static final String REFRESH_STAR_STATES = "Refresh Star States";
     private final Database database;
     private final ScrollResultsPanelState state = new ScrollResultsPanelState();
 
