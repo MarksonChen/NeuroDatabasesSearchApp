@@ -128,7 +128,9 @@ public class ControllerFactory {
     }
 
     StarController createStarController() {
-        return null;
+        StarOutputBoundary starPresenter = new StarPresenter(resultsPanelModels, starredViewModel);
+        StarInputBoundary starInteractor = new StarInteractor(starPresenter, starDAO);
+        return new StarController(starInteractor);
     }
 
     ClearHistoryController createClearHistoryController() {
