@@ -1,6 +1,5 @@
 package view;
 
-import use_case.open_frame.OpenFrameController;
 import view_model.FrameManagerModel;
 
 import javax.swing.*;

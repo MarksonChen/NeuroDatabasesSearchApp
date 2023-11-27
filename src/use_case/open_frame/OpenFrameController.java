@@ -1,13 +1,13 @@
 package use_case.open_frame;
 
 public class OpenFrameController {
-    private final OpenFrameInputBoundary openFrmeInteractor;
+    private final OpenFrameInputBoundary openFrameInteractor;
 
-    public OpenFrameController(OpenFrameInputBoundary openFrmeInteractor) {
-        this.openFrmeInteractor = openFrmeInteractor;
+    public OpenFrameController(OpenFrameInputBoundary openFrameInteractor) {
+        this.openFrameInteractor = openFrameInteractor;
     }
 
     public void execute(String viewName) {
-        openFrmeInteractor.execute(viewName);
+        openFrameInteractor.execute(viewName);
     }
 }
