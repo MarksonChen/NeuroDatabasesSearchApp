@@ -6,6 +6,7 @@ import java.beans.PropertyChangeSupport;
 public class FrameManagerModel implements ObserverViewModel{
 
     private String activeView;
+    public static final String Open = "OPEN";
 
     public String getActiveView() {
         return activeView;
