@@ -17,6 +17,5 @@ public interface CacheDataAccessInterface {
 
     List<FetchedData> getDataOnPage(Database database, int page);
 
-    List<FetchedData>[] getCachedData();
-    void saveCache(String pathName) throws IOException;
+
 }
