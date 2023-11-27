@@ -19,6 +19,12 @@ public class QueryAllInteractor implements QueryAllInputBoundary {
         this.queryDAO = queryDAO;
     }
 
+    /**
+     * Send back result from All of our external database.
+     *
+     * @param inputData The info that needed to start query, both API needed and program needed.
+     */
+
     @Override
     public void execute(QueryAllInputData inputData) {
         String keywords = inputData.getKeywords();
