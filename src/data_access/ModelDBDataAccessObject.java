@@ -10,6 +10,12 @@ import java.io.IOException;
 import java.util.*;
 
 public class ModelDBDataAccessObject extends PreloadedDatabaseDataAccessObject{
+    private final WebDataAccessInterface webDAO;
+
+    public ModelDBDataAccessObject(WebDataAccessInterface webDAO) {
+        this.webDAO = webDAO;
+    }
+
     @Override
     public List<FetchedData> query(Query query, int resultsPerPage, int page) throws IOException {
         return null;

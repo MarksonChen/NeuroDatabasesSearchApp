@@ -10,6 +10,11 @@ import java.io.IOException;
 import java.util.*;
 
 public class NeuroElectroDataAccessObject extends PreloadedDatabaseDataAccessObject{
+    private final WebDataAccessInterface webDAO;
+    public NeuroElectroDataAccessObject(WebDataAccessInterface webDAO) {
+        this.webDAO = webDAO;
+    }
+
 
     @Override
     public List<FetchedData> query(Query query, int resultsPerPage, int page) throws IOException {
