@@ -1,9 +1,13 @@
 package use_case.open_website;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 public class OpenWebsiteInteractor implements OpenWebsiteInputBoundary{
+
+    private final OpenWebsiteOutputBoundary openWebsitePresenter;
+
+    public OpenWebsiteInteractor(OpenWebsiteOutputBoundary openWebsitePresenter) {
+        this.openWebsitePresenter = openWebsitePresenter;
+    }
+
     @Override
     public void execute(String url) {
 
