@@ -108,7 +108,9 @@ public class ControllerFactory {
     }
 
     SwitchResultsPanelController createSwitchResultsPanelController() {
-        return null;
+        SwitchResultsPanelOutputBoundary switchResultsPanelPresenter = new SwitchResultsPanelPresenter(searchViewModel);
+        SwitchResultsPanelInputBoundary switchResultsPanelInteractor = new SwitchResultsPanelInteractor(switchResultsPanelPresenter);
+        return new SwitchResultsPanelController(switchResultsPanelInteractor);
     }
 
     OpenFrameController createOpenFrameController() {
