@@ -12,7 +12,7 @@ public class FrameManager implements PropertyChangeListener {
     private final FrameManagerModel frameManagerModel;
     private final Map<String, JFrame> frame;
 
-    public FrameManager(FrameManagerModel frameManagerModel, Map<String, JFrame> frames, Map<String, JFrame> frame) {
+    public FrameManager(FrameManagerModel frameManagerModel, Map<String, JFrame> frames) {
         this.frameManagerModel = frameManagerModel;
         this.frame = frames;
         frameManagerModel.addPropertyChangeListener(this);
