@@ -46,7 +46,10 @@ public class HistoryView extends JFrame implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // TODO: Refresh, clear history, close
+        switch(evt.getPropertyName()){
+            // TODO: clearHistory, Close
+            case HistoryViewModel.REFRESH -> refresh();
+        }
     }
 
     private void refresh() {

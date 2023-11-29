@@ -108,11 +108,15 @@ public class ControllerFactory {
     }
 
     SwitchResultsPanelController createSwitchResultsPanelController() {
-        return null;
+        SwitchResultsPanelOutputBoundary switchResultsPanelPresenter = new SwitchResultsPanelPresenter(searchViewModel);
+        SwitchResultsPanelInputBoundary switchResultsPanelInteractor = new SwitchResultsPanelInteractor(switchResultsPanelPresenter);
+        return new SwitchResultsPanelController(switchResultsPanelInteractor);
     }
 
     OpenFrameController createOpenFrameController() {
-        return null;
+        OpenFrameOutputBoundary openFramePresenter = new OpenFramePresenter(frameManagerModel, starredViewModel, historyViewModel);
+        OpenFrameInputBoundary openFrameInteractor = new OpenFrameInteractor(openFramePresenter);
+        return new OpenFrameController(openFrameInteractor);
     }
 
     QueryAllController createQueryAllController() {

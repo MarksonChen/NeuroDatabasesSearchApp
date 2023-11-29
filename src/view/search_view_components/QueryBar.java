@@ -59,12 +59,35 @@ public class QueryBar extends JPanel {
         add(databasesComboBox);
     }
     private void addListeners() {
-        // TODO from the query use cases!
+        switchViewButton.addActionListener(e ->
+                switchViewController.execute(FrontPageViewModel.VIEW_NAME));
+        searchButton.addActionListener(e -> performSearch(searchViewModel, queryAllController, queryOneController));
+        searchField.addActionListener(e -> performSearch(searchViewModel, queryAllController, queryOneController));
+        searchField.addKeyListener(
+                new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {
+                        SearchViewState currentState = searchViewModel.getState();
+                        String text = searchField.getText() + e.getKeyChar();
+                        currentState.setSearchFieldText(text);
+//                        searchViewModel.setState(currentState);
+                    }
+                    @Override
+                    public void keyPressed(KeyEvent e) { }
+                    @Override
+                    public void keyReleased(KeyEvent e) { }
+                });
+        databasesComboBox.addActionListener(e -> {
+            SearchViewState currentState = searchViewModel.getState();
+            String databaseOption = (String) databasesComboBox.getSelectedItem();
+            currentState.setDatabaseOption(databaseOption);
+            switchResultsPanelController.execute(databaseOption);
+        });
     }
     private static void performSearch(SearchViewModel searchViewModel, QueryAllController queryAllController, QueryOneController queryOneController){
         SearchViewState state = searchViewModel.getState();
         String option = state.getDatabaseOption();
-        if (option.equals(SearchViewModel.ALL_DATABASES)){
+            if (option.equals(SearchViewModel.ALL_DATABASES)){
             queryAllController.execute(state.getSearchFieldText(), state.getResultsPerPage());
         } else{
             queryOneController.execute(Database.valueOf(option), state.getSearchFieldText(), state.getResultsPerPage(), 1);
