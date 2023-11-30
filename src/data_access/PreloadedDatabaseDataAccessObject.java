@@ -8,9 +8,6 @@ import java.util.*;
 
 abstract public class PreloadedDatabaseDataAccessObject implements DatabaseDataAcecssInterface{
     private static boolean loaded = false;
-    // This is marked "protected" because ideally, it should be accessible
-    // only by the subclass, but there isn't a "subclass only" access
-    // modifier in Java.
     private int totalResults;
     private Query lastQuery;
     private List<String> queryResults;
