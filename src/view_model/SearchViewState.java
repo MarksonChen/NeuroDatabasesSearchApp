@@ -12,6 +12,7 @@ public class SearchViewState {
     private int resultsPerPage = SearchViewModel.DEFAULT_RESULTS_PER_PAGE;
     private List<FetchedData> fetchedData;          // For single view
     private LinkedHashMap<String, Boolean>[] detailEntryDisplayed;
+    private String errorMessage;
 
     public String getSearchFieldText() {
         return searchFieldText;
@@ -59,5 +60,13 @@ public class SearchViewState {
 
     public void setDetailEntryDisplayed(LinkedHashMap<String, Boolean>[] detailEntryDisplayed) {
         this.detailEntryDisplayed = detailEntryDisplayed;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 }

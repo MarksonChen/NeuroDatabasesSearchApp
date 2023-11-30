@@ -53,8 +53,17 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         prevButton = new JButton(SearchViewModel.PREV_BUTTON_LABEL);
         nextButton = new JButton(SearchViewModel.NEXT_BUTTON_LABEL);
 
-        // TODO: action listeners for the buttons (part of the Query use case)
+        prevButton.addActionListener(e ->{
+            ScrollResultsPanelState state = model.getState();
+            state.setCurrentPage(state.getCurrentPage() - 1);
+            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+        });
 
+        prevButton.addActionListener(e ->{
+            ScrollResultsPanelState state = model.getState();
+            state.setCurrentPage(state.getCurrentPage() + 1);
+            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+        });
     }
 
     @Override
@@ -62,6 +71,10 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         ScrollResultsPanelState state = (ScrollResultsPanelState) evt.getNewValue();
         switch (evt.getPropertyName()) {
             // TODO: as part of the various use cases!!
+            case ScrollResultsPanelModel.REFRESH_ALL -> {
+                displayPage(state.getFetchedDataList(), state.getDataIsStarredList(), state.getTotalResults(), state.getResultsPerPage(), state.getCurrentPage());
+            }
+            // Query Success Action
 
         }
     }

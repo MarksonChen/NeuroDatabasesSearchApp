@@ -112,7 +112,9 @@ public class ControllerFactory {
     }
 
     OpenFrameController createOpenFrameController() {
-        return null;
+        OpenFrameOutputBoundary openFramePresenter = new OpenFramePresenter(frameManagerModel, starredViewModel, historyViewModel);
+        OpenFrameInputBoundary openFrameInteractor = new OpenFrameInteractor(openFramePresenter);
+        return new OpenFrameController(openFrameInteractor);
     }
 
     QueryAllController createQueryAllController() {
