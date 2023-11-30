@@ -9,6 +9,8 @@ import use_case.open_website.WebDataAccessInterface;
 import java.io.IOException;
 import java.util.*;
 
+import static data_access.PreloadedDatabaseDataAccessObject.splitWords;
+
 public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
     private final WebDataAccessInterface webDAO;
     private static final Set<String> brainRegions = new HashSet<>();
@@ -123,7 +125,7 @@ public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
     }
 
     private JSONArray fetchResults(Query query, int resultsPerPage, int page) throws IOException {
-        String[] keywords = query.getKeywords().toLowerCase().split("\\s+");;
+        String[] keywords = splitWords(query.getKeywords());
         String cellType = null, brainRegion = null;
         for (String keyword: keywords){
             if (cellTypes.contains(keyword)){
