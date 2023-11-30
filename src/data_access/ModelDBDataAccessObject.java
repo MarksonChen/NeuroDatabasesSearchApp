@@ -11,28 +11,96 @@ import java.util.*;
 
 public class ModelDBDataAccessObject extends PreloadedDatabaseDataAccessObject{
     private final WebDataAccessInterface webDAO;
+    private static final String[] entryKeys = {"description", "neurons", "keywords", "model paper"};
 
+    private final Map<String, String> preloadedEntries;
     public ModelDBDataAccessObject(WebDataAccessInterface webDAO) {
         this.webDAO = webDAO;
+        preloadedEntries = new HashMap<>();
     }
 
+    /**
+     * load responses from web to preloadedEntries
+     * @throws IOException
+     */
+    public void load() throws IOException {
+        // https://modeldb.science/api/v1/models/name
+        String modelNames = webDAO.getResponse("https://modeldb.science/api/v1/models/name");
+        String modelID = webDAO.getResponse("https://modeldb.science/api/v1/models");
+        JSONArray namesArray = new JSONArray(modelNames);
+        JSONArray idArray = new JSONArray(modelID);
+        for (int i = 0; i < namesArray.length(); i++) {
+            preloadedEntries.put(namesArray.getString(i), Integer.toString(idArray.getInt(i)));
+        }
+    }
+
+    /**
+     * @param id is id of the model
+     * @return a LinekedHaspMap, key is entrykeys, and value is its description
+     * @throws IOException
+     */
+    public LinkedHashMap<String, String> getEntryDetail(String id) throws IOException {
+        String response = webDAO.getResponse("https://modeldb.science/api/v1/models/" + id);
+        JSONObject entryDetail = new JSONObject(response);
+
+        LinkedHashMap<String, String> details = new LinkedHashMap<>();
+
+        if (entryDetail.has("notes")) {
+            String description = entryDetail.getJSONObject("notes").getString("value");
+            details.put(entryKeys[0], description);
+        }
+        if (entryDetail.has("neurons")) {
+            JSONArray neuronsArr = entryDetail.getJSONObject("neurons").getJSONArray("value");
+            String neurons = joinJSONArray(neuronsArr);
+            details.put(entryKeys[1], neurons);
+        }
+        if (entryDetail.has("model_concept")) {
+            JSONArray keywordsArr = entryDetail.getJSONObject("model_concept").getJSONArray("value");
+            String keywords = joinJSONArray(keywordsArr);
+            details.put(entryKeys[2], keywords);
+        }
+        if (entryDetail.has("model_paper")) {
+            String modelPaper = entryDetail.getJSONObject("model_paper").getJSONArray("value")
+                    .getJSONObject(0).getString("object_name");
+            details.put(entryKeys[3], modelPaper);
+        }
+        return details;
+    }
+
+    /**
+     * @param query is query of user
+     * @param resultsPerPage
+     * @param page
+     * @return list of fetched data corespond to the query
+     * @throws IOException
+     */
     @Override
     public List<FetchedData> query(Query query, int resultsPerPage, int page) throws IOException {
-        return null;
+        return query(Database.ModelDB, preloadedEntries, query, resultsPerPage, page);
     }
 
+    /**
+     * @param id of the model
+     * @return url of that model
+     */
     @Override
     public String getURL(String id) {
-        return null;
+        return "https://modeldb.science/" + id;
     }
 
+    /**
+     * @return entrykeys
+     */
     @Override
     public String[] getEntryKeys() {
-        return new String[0];
+        return entryKeys;
     }
 
-    @Override
-    public LinkedHashMap<String, String> getEntryDetail(String id) throws IOException {
-        return null;
+    private static String joinJSONArray(JSONArray jsonArr) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < jsonArr.length(); i++) {
+            list.add(jsonArr.getJSONObject(i).getString("object_name"));
+        }
+        return String.join(", ", list);
     }
 }
