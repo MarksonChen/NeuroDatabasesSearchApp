@@ -5,7 +5,14 @@ import use_case.fill_detail.FillDetailInputBoundary;
 
 public class FillDetailController {
 
-    public void execute(FetchedData data) {
+    private final FillDetailInputBoundary fillDetailInteractor;
 
+    public FillDetailController(FillDetailInputBoundary fillDetailInteractor) {
+        this.fillDetailInteractor = fillDetailInteractor;
     }
+
+    public void execute(FetchedData data) {
+        fillDetailInteractor.execute(data);
+    }
+
 }
