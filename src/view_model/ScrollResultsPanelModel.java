@@ -10,7 +10,7 @@ public class ScrollResultsPanelModel implements ObserverViewModel{
     private final Database database;
     private final ScrollResultsPanelState state = new ScrollResultsPanelState();
 
-    public static final String REFRESH_STAR_STATES = "Refresh Star States";
+    public static final String REFRESH_DATA_INFO_PANEL = "Refresh Data Info Panel";
 
     public ScrollResultsPanelModel(Database database) {
         this.database = database;
