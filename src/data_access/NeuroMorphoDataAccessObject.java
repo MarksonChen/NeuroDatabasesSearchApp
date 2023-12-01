@@ -100,18 +100,22 @@ public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
     private void loadBrainFields() throws IOException {
         String response = webDAO.getResponse("https://neuromorpho.org/api/neuron/fields/brain_region");
         JSONObject responseJson = new JSONObject(response);
-        JSONArray fieldArray = responseJson.getJSONArray("fields");
-        for (int i = 0; i < fieldArray.length(); i++) {
-            brainRegions.add(fieldArray.getString(i));
+        if (responseJson.has("fields")) {
+            JSONArray fieldArray = responseJson.getJSONArray("fields");
+            for (int i = 0; i < fieldArray.length(); i++) {
+                brainRegions.add(fieldArray.getString(i));
+            }
         }
     }
 
     private void loadCellFields() throws IOException {
         String response = webDAO.getResponse("https://neuromorpho.org/api/neuron/fields/cell_type");
         JSONObject responseJson = new JSONObject(response);
-        JSONArray fieldArray = responseJson.getJSONArray("fields");
-        for (int i = 0; i < fieldArray.length(); i++) {
-            cellTypes.add(fieldArray.getString(i));
+        if (responseJson.has("fields")) {
+            JSONArray fieldArray = responseJson.getJSONArray("fields");
+            for (int i = 0; i < fieldArray.length(); i++) {
+                cellTypes.add(fieldArray.getString(i));
+            }
         }
     }
 

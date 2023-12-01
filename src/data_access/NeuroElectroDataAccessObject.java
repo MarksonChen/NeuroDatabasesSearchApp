@@ -3,6 +3,7 @@ package data_access;
 import entity.FetchedData;
 import entity.Query;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import use_case.open_website.WebDataAccessInterface;
 
@@ -26,7 +27,7 @@ public class NeuroElectroDataAccessObject extends PreloadedDatabaseDataAccessObj
      * @return a linkedHashMap that have key the entrykeys and value is its property
      * @throws IOException
      */
-    public LinkedHashMap<String, String> getEntryDetail(String id) throws IOException {
+    public LinkedHashMap<String, String> getEntryDetail(String id) throws IOException, JSONException {
         LinkedHashMap<String, String> details = new LinkedHashMap<>();
         if (id == null){
             throw new RuntimeException("IT IS NULL");
