@@ -5,37 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="168141b2-4e11-4577-ab55-e69e9650d07a" name="Changes" comment="Added Javadoc for the SwitchView use case.">
-      <change afterPath="$PROJECT_DIR$/resources/icons/magnifier.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/FrameManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/HistoryView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ImageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/MenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/StarredView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/search_view_components/HintTextField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/search_view_components/OpenWebsiteTitleButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/search_view_components/ParagraphTextArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/search_view_components/ScrollResultsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/search_view_components/StarButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/icons/backArrow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/FrontPageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/FrontPageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SearchView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/search_view_components/OptionBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/search_view_components/OptionBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/search_view_components/QueryBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/search_view_components/QueryBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/search_view_components/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/search_view_components/ResultPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/FrameManagerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/FrameManagerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/FrontPageViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/FrontPageViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/HistoryViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/HistoryViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/HistoryViewState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/HistoryViewState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/MainFrameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/MainFrameViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/ObserverViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/ObserverViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/ScrollResultsPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/ScrollResultsPanelModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view_model/SearchViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/SearchViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/SearchViewState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/SearchViewState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/StarredViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/StarredViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_model/StarredViewState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_model/StarredViewState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +56,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "markson",
+    "git-widget-placeholder": "markson__bug__fixes",
     "last_opened_file_path": "/Users/zhizhongchen/IdeaProjects/NeuroDatabasesSearchApp/resources/icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
