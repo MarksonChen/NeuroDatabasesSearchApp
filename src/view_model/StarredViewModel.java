@@ -5,6 +5,7 @@ import java.beans.PropertyChangeSupport;
 
 public class StarredViewModel implements ObserverViewModel{
     public static final String VIEW_NAME = "Starred Frame";
+    public static final String STAR = "STAR";
     public static final String EMPTY_MESSAGE = "You currently have no starred entries.";
     public static final String REFRESH = "Refresh";
     private final StarredViewState state = new StarredViewState();
