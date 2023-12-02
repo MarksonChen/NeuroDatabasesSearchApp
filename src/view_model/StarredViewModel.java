@@ -8,6 +8,7 @@ public class StarredViewModel implements ObserverViewModel{
     public static final String STAR = "STAR";
     public static final String EMPTY_MESSAGE = "You currently have no starred entries.";
     public static final String REFRESH = "Refresh";
+    public static final String FILL_DETAIL = "FILL_DETAIL";
     private final StarredViewState state = new StarredViewState();
     public StarredViewState getState() {
         return state;
