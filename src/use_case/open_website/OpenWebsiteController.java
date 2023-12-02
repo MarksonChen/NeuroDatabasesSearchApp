@@ -11,7 +11,5 @@ public class OpenWebsiteController {
     }
 
 
-    public void execute(String url) {
-        openWebsiteInteractor.execute(url);
-    }
+    public void execute(String url) {openWebsiteInteractor.execute(url);}
 }
