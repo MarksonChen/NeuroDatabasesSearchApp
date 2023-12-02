@@ -17,6 +17,10 @@ public class MainFrameViewModel implements ObserverViewModel {
 
     public final MainFrameViewState state = new MainFrameViewState();
 
+    public MainFrameViewState getState() {
+        return state;
+    }
+
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     public void firePropertyChanged(String propertyName) {
         support.firePropertyChange(propertyName, null, this.state);
