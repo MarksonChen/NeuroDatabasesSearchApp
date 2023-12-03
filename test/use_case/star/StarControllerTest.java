@@ -20,7 +20,7 @@ class StarControllerTest {
         // Initialize the interactor with the DAO
         starInteractor = new StarInteractor(starDAO);
 
-        // Initialize the controller with the interactor
+        // InitiaClize the controller with the interactor
         starController = new StarController(starInteractor);
     }
 
