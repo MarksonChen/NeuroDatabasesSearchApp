@@ -50,7 +50,8 @@ public class StarredView extends JFrame implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()){
-            // TODO as part of the star use cases
+            // TODO as part of star use cases
+            case StarredViewModel.REFRESH -> refresh();
         }
     }
 
