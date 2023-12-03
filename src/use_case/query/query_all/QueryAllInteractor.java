@@ -13,10 +13,14 @@ public class QueryAllInteractor implements QueryAllInputBoundary {
 
     private final QueryAllOutputBoundary queryAllPresenter;
     private final QueryDataAccessInterface queryDAO;
+    private final StarDataAccessInterface starDAO;
+    private final HistoryDataAccessInterface historyDAO;
 
-    public QueryAllInteractor(QueryAllOutputBoundary queryAllOutputBoundary, QueryDataAccessInterface queryDAO) {
+    public QueryAllInteractor(QueryAllOutputBoundary queryAllOutputBoundary, QueryDataAccessInterface queryDAO, StarDataAccessInterface starDAO, HistoryDataAccessInterface historyDAO) {
         this.queryAllPresenter = queryAllOutputBoundary;
         this.queryDAO = queryDAO;
+        this.starDAO = starDAO;
+        this.historyDAO = historyDAO;
     }
 
     /**
@@ -33,11 +37,12 @@ public class QueryAllInteractor implements QueryAllInputBoundary {
             queryAllPresenter.prepareFailView("Cannot search with empty query, please try again");
             return;
         }
-        // Star & History may appear here
-        List<Boolean>[] starredStateList = null;
-        List<Query> historyQueryList = null;
         try {
+            historyDAO.add(query);
+            historyDAO.saveToFile();
             List<FetchedData>[] fetchedData = queryDAO.queryAll(query, inputData.getResultPerPage(), 1);
+            List<Boolean>[] starredStateList = starDAO.checkIfDataStarred(fetchedData);
+            List<Query> historyQueryList = historyDAO.getHistoryQueryList();
             int[] queryAllTotalResults = queryDAO.getQueryAllTotalResults();
 
             QueryAllOutputData outputData = new QueryAllOutputData(keywords, fetchedData, starredStateList, historyQueryList, queryAllTotalResults);

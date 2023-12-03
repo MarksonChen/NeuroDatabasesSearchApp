@@ -11,10 +11,12 @@ import java.util.Map;
 
 public class QueryOnePresenter implements QueryOneOutputBoundary {
     private final SearchViewModel searchViewModel;
+    private final HistoryViewModel historyViewModel;
     private final Map<Database, ScrollResultsPanelModel> resultsPanelModelsMap;
 
-    public QueryOnePresenter(SearchViewModel searchViewModel, ScrollResultsPanelModel[] resultsPanelModels) {
+    public QueryOnePresenter(SearchViewModel searchViewModel, ScrollResultsPanelModel[] resultsPanelModels, HistoryViewModel historyViewModel) {
         this.searchViewModel = searchViewModel;
+        this.historyViewModel = historyViewModel;
         this.resultsPanelModelsMap = new HashMap<>();
         for(int i =0; i < Database.length; i++){
             resultsPanelModelsMap.put(Database.get(i), resultsPanelModels[i]);
@@ -33,6 +35,9 @@ public class QueryOnePresenter implements QueryOneOutputBoundary {
         state.setDataIsStarredList(outputData.getDataStarredStateList());
 
         model.firePropertyChanged(ScrollResultsPanelModel.REFRESH_ALL);
+
+        historyViewModel.getState().setHistoryQueryList(outputData.getHistoryQueryList());
+        historyViewModel.firePropertyChanged(HistoryViewModel.REFRESH);
     }
 
     @Override

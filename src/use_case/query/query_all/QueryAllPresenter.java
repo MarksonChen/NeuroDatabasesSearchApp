@@ -12,10 +12,12 @@ import java.util.List;
 public class QueryAllPresenter implements QueryAllOutputBoundary {
     private final SearchViewModel searchViewModel;
     private final ScrollResultsPanelModel[] resultsPanelModels;
+    private final HistoryViewModel historyViewModel;
 
-    public QueryAllPresenter(SearchViewModel searchViewModel, ScrollResultsPanelModel[] resultsPanelModels) {
+    public QueryAllPresenter(SearchViewModel searchViewModel, ScrollResultsPanelModel[] resultsPanelModels, HistoryViewModel historyViewModel) {
         this.searchViewModel = searchViewModel;
         this.resultsPanelModels = resultsPanelModels;
+        this.historyViewModel = historyViewModel;
     }
 
     @Override
@@ -32,6 +34,9 @@ public class QueryAllPresenter implements QueryAllOutputBoundary {
             state.setDataIsStarredList(starredStateListArr[i]);
             resultsPanelModels[i].firePropertyChanged(ScrollResultsPanelModel.REFRESH_ALL);
         }
+
+        historyViewModel.getState().setHistoryQueryList(outputData.getHistoryQueryList());
+        historyViewModel.firePropertyChanged(HistoryViewModel.REFRESH);
     }
 
     @Override

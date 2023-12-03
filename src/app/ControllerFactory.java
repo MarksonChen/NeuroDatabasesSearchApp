@@ -118,11 +118,15 @@ public class ControllerFactory {
     }
 
     QueryAllController createQueryAllController() {
-        return null;
+        QueryAllOutputBoundary queryPresenter = new QueryAllPresenter(searchViewModel, resultsPanelModels, historyViewModel);
+        QueryAllInputBoundary queryInteractor = new QueryAllInteractor(queryPresenter, queryDAO, starDAO, historyDAO);
+        return new QueryAllController(queryInteractor);
     }
 
     QueryOneController createQueryOneController() {
-        return null;
+        QueryOneOutputBoundary queryPresenter = new QueryOnePresenter(searchViewModel, resultsPanelModels, historyViewModel);
+        QueryOneInputBoundary queryInteractor = new QueryOneInteractor(queryPresenter, queryDAO, starDAO, historyDAO);
+        return new QueryOneController(queryInteractor);
     }
 
     FillDetailController createFillDetailController() {
