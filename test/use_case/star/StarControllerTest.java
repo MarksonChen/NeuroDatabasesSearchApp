@@ -4,35 +4,43 @@ import data_access.StarDataAccessObject;
 import entity.FetchedData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 import java.util.LinkedHashMap;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StarControllerTest {
-
-    private StarController starController;
-    private StarInteractor starInteractor;
-    private StarDataAccessInterface starDAO; // This should be a real or test implementation
+    private StarDataAccessInterface starDAO;
 
     @BeforeEach
     void setUp() {
-        // Initialize the data access object (DAO)
-        starDAO = new StarDataAccessObject("resources/serializables/starredData.ser");
+        try {
+            starDAO = new StarDataAccessObject("resources/serializables/starredData.ser");
+            starDAO.clear();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
-        // Initialize the interactor with the DAO
-        starInteractor = new StarInteractor(starDAO);
-
-        // InitiaClize the controller with the interactor
-        starController = new StarController(starInteractor);
     }
 
     @Test
-    void executeShouldInvokeInteractor() {
+    void testStarAdded() {
         // Create a test instance of FetchedData
         FetchedData testData = new FetchedData("Sample Title", "Sample ID", "http://sampleurl.com", null, new LinkedHashMap<>());
 
-        // Execute the method under test
-        starController.execute(testData);
+        StarOutputBoundary mockPresenter = new StarOutputBoundary() {
+            @Override
+            public void prepareSuccessView(FetchedData outputData) {
+                assertEquals(starDAO.getStarredDataList().get(0), testData);
+                assertEquals(starDAO.getStarredDataList().size(), 1);
+            }
+        };
 
+        StarInputBoundary starInteractor = new StarInteractor(mockPresenter, starDAO);
+        StarController starController = new StarController(starInteractor);
+
+        starController.execute(testData);
     }
 }
 

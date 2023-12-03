@@ -1,41 +1,61 @@
 package use_case.clear_history;
 
 import data_access.HistoryDataAccessObject;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
 
 class ClearHistoryInteractorTest {
-
-    private ClearHistoryInteractor clearHistoryInteractor;
-    private FakeHistoryDataAccessInterface historyDAO;
+    private HistoryDataAccessObject historyDAO;
+    private ClearHistoryOutputBoundary mockPresenter;
 
     @BeforeEach
     void setUp() {
-        // Initialize the fake DAO
-        historyDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser");
-
-        // Initialize the interactor with the fake DAO
-        clearHistoryInteractor = new ClearHistoryInteractor(historyDAO);
+        try {
+            historyDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser");
+            historyDAO.clear();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        mockPresenter = new ClearHistoryOutputBoundary() {
+            @Override
+            public void prepareSuccessView() {
+                // Not part of the test
+            }
+        };
     }
 
     @Test
-    void executeShouldClearHistory() {
-        // Execute the method under test
+    void testHistoryCleared() {
+
+        ClearHistoryInputBoundary clearHistoryInteractor = new ClearHistoryInteractor(mockPresenter, historyDAO);
         clearHistoryInteractor.execute();
 
-        // Verify that the clearHistory method was called on the DAO
-        assertTrue(historyDAO.isClearHistoryCalled);
+        Assertions.assertEquals(historyDAO.getHistoryQueryList().size(), 0);
     }
 
-    // Fake DAO for testing purposes
-    private class FakeHistoryDataAccessInterface implements HistoryDataAccessInterface {
-        boolean isClearHistoryCalled = false;
 
-        @Override
-        public void clearHistory() {
-            isClearHistoryCalled = true;
+    @Test
+    void testThrowsException(){
+        HistoryDataAccessObject exceptionHistoryDAO;
+        try {
+            exceptionHistoryDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser"){
+                @Override
+                public void saveToFile() throws IOException {
+                    throw new IOException();
+                }
+            };
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
+        ClearHistoryInputBoundary clearHistoryInteractor = new ClearHistoryInteractor(mockPresenter, exceptionHistoryDAO);
+
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            clearHistoryInteractor.execute();
+        });
     }
+
 }

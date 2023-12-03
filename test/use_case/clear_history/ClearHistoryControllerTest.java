@@ -1,45 +1,39 @@
 package use_case.clear_history;
 
+import data_access.HistoryDataAccessObject;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
 
 class ClearHistoryControllerTest {
-
-    private ClearHistoryController clearHistoryController;
-    private ClearHistoryInteractor clearHistoryInteractor;
-    private FakeHistoryDataAccessInterface historyDAO;
+    private HistoryDataAccessObject historyDAO;
 
     @BeforeEach
     void setUp() {
-        // Initialize the fake DAO or the real DAO
-        historyDAO = new FakeHistoryDataAccessInterface();
-
-        // Initialize the real interactor with the DAO
-        clearHistoryInteractor = new ClearHistoryInteractor(historyDAO);
-
-        // Initialize the controller with the real interactor
-        clearHistoryController = new ClearHistoryController(clearHistoryInteractor);
+        try {
+            historyDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser");
+            historyDAO.clear();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    void executeShouldInvokeInteractor() {
-        // Execute the method under test
+    void testHistoryCleared() {
+        ClearHistoryOutputBoundary mockPresenter = new ClearHistoryOutputBoundary() {
+            @Override
+            public void prepareSuccessView() {
+                // Not part of the test
+            }
+        };
+
+        ClearHistoryInputBoundary clearHistoryInteractor = new ClearHistoryInteractor(mockPresenter, historyDAO);
+        ClearHistoryController clearHistoryController = new ClearHistoryController(clearHistoryInteractor);
         clearHistoryController.execute();
 
-        // Assertions to verify the expected behavior
-        assertTrue(historyDAO.isClearHistoryCalled);
-    }
-
-    // Fake DAO for testing purposes
-    private class FakeHistoryDataAccessInterface implements HistoryDataAccessInterface {
-        boolean isClearHistoryCalled = false;
-
-        @Override
-        public void clearHistory() {
-            isClearHistoryCalled = true;
-        }
-
+        Assertions.assertEquals(historyDAO.getHistoryQueryList().size(), 0);
     }
 }
 
