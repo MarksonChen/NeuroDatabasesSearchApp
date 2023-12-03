@@ -12,6 +12,6 @@ public interface QueryDataAccessInterface {
     List<FetchedData>[] queryAll(Query query, int resultsPerPage, int page) throws IOException;
     FetchedData fillDetails(FetchedData data) throws IOException;
     int getQueryOneTotalResults();
-    List<Integer> getQueryAllTotalResults();
+    int[] getQueryAllTotalResults();
     String[][] getEntryKeys();
 }
