@@ -14,4 +14,6 @@ public interface HistoryDataAccessInterface {
     void removeHistory();
 
     void saveToFile() throws IOException;
+
+    void clear() throws IOException;
 }
