@@ -47,8 +47,12 @@ public class HistoryView extends JFrame implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         switch(evt.getPropertyName()){
-            // TODO: clearHistory, Close
             case HistoryViewModel.REFRESH -> refresh();
+            case HistoryViewModel.CLEAR_HISTORY -> {
+                refresh();
+                JOptionPane.showMessageDialog(this, "History Cleared");
+            }
+            case HistoryViewModel.CLOSE -> setVisible(false);
         }
     }
 
@@ -87,7 +91,8 @@ public class HistoryView extends JFrame implements PropertyChangeListener {
         public HistoryQueryButton(Query query, ReuseHistoryQueryController reuseHistoryQueryController, SwitchViewController switchViewController) {
             super(query.getKeywords());
             this.addActionListener(e -> {
-                // TODO ReuseHistoryQuery use case
+                reuseHistoryQueryController.execute(query);
+                switchViewController.execute(SearchViewModel.VIEW_NAME);
             });
         }
     }

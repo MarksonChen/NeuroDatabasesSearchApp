@@ -16,4 +16,5 @@ public interface StarDataAccessInterface {
     Boolean dataIsStarred(FetchedData data);
     List<FetchedData> getStarredDataList();
     void saveStarredData() throws IOException;
+    void clear() throws IOException;
 }
