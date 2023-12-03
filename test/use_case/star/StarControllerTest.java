@@ -1,5 +1,6 @@
 package use_case.star;
 
+import data_access.StarDataAccessObject;
 import entity.FetchedData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class StarControllerTest {
     @BeforeEach
     void setUp() {
         // Initialize the data access object (DAO)
-        starDAO = new  // How do I replace with actual implementation
+        starDAO = new StarDataAccessObject("resources/serializables/starredData.ser");
 
         // Initialize the interactor with the DAO
         starInteractor = new StarInteractor(starDAO);

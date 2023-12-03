@@ -1,5 +1,6 @@
 package use_case.clear_history;
 
+import data_access.HistoryDataAccessObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ class ClearHistoryInteractorTest {
     @BeforeEach
     void setUp() {
         // Initialize the fake DAO
-        historyDAO = new FakeHistoryDataAccessInterface();
+        historyDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser");
 
         // Initialize the interactor with the fake DAO
         clearHistoryInteractor = new ClearHistoryInteractor(historyDAO);
