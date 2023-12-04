@@ -60,4 +60,9 @@ public class ScrollResultsPanelState {
     public void setLastQuery(String lastQuery) {
         this.lastQuery = lastQuery;
     }
+
+    public void toggleStarOfData(FetchedData data) {
+        int index = fetchedDataList.indexOf(data);
+        dataIsStarredList.set(index, !dataIsStarredList.get(index));
+    }
 }
