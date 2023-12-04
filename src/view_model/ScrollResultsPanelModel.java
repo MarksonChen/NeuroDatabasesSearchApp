@@ -8,6 +8,7 @@ import java.beans.PropertyChangeSupport;
 public class ScrollResultsPanelModel implements ObserverViewModel{
     public static final String REFRESH_ALL = "Refresh All";
     private final Database database;
+    public static final String REFRESH_STAR_STATES = "Refresh Star States";
     private final ScrollResultsPanelState state = new ScrollResultsPanelState();
 
     public static final String REFRESH_DATA_INFO_PANEL = "Refresh Data Info Panel";
