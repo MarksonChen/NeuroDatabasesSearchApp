@@ -36,14 +36,10 @@ public class QueryOneInteractor implements QueryOneInputBoundary{
             return;
         }
 
-        historyDAO.add(query);
-        try {
-            historyDAO.saveToFile();
-        } catch (IOException e) {
-            e.printStackTrace(); // No need to push an alert if this automatic process is not working
-        }
 
         try {
+            historyDAO.add(query);
+            historyDAO.saveToFile();
             List<FetchedData> fetchedData = queryDAO.queryOne(inputData.getDatabase(), query, inputData.getResultPerPage(), inputData.getPage());
             List<Boolean> dataStarredStateList = starDAO.checkIfDataStarred(fetchedData);
             List<Query> historyQueryList = historyDAO.getHistoryQueryList();
