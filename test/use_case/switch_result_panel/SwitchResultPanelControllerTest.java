@@ -1,4 +1,4 @@
-package switch_result_panel;
+package use_case.switch_result_panel;
 
 import org.junit.jupiter.api.Test;
 import use_case.switch_results_panel.SwitchResultsPanelController;
@@ -9,7 +9,7 @@ import view_model.SearchViewModel;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SwitchResultPanelInteractorTest {
+public class SwitchResultPanelControllerTest {
     @Test
     void execute(){
         String inputData = SearchViewModel.ALL_DATABASES;
@@ -20,7 +20,6 @@ public class SwitchResultPanelInteractorTest {
             }
         };
         SwitchResultsPanelInputBoundary switchResultsPanelInteractor = new SwitchResultsPanelInteractor(mockPresenter);
-        SwitchResultsPanelController switchResultsPanelController = new SwitchResultsPanelController(switchResultsPanelInteractor);
-        switchResultsPanelController.execute(inputData);
+        switchResultsPanelInteractor.execute(inputData);
     }
 }
