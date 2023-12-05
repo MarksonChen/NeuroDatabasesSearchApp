@@ -1,6 +1,6 @@
 package app;
 
-import use_case.clear_history.ClearHistoryController;
+import use_case.clear_history.*;
 import use_case.fill_detail.FillDetailController;
 import use_case.load_from_DAO.LoadFromDAOController;
 import use_case.open_frame.OpenFrameController;
@@ -9,18 +9,17 @@ import use_case.open_website.*;
 import use_case.query.query_all.QueryAllController;
 import use_case.query.query_one.QueryOneController;
 import use_case.reuse_history_query.ReuseHistoryQueryController;
-import use_case.star.StarController;
+import use_case.star.*;
 import use_case.switch_results_panel.SwitchResultsPanelController;
 import use_case.switch_results_panel.SwitchResultsPanelPresenter;
 import use_case.switch_view.SwitchViewController;
 import use_case.switch_view.SwitchViewPresenter;
-import use_case.toggle_display_option.ToggleDisplayOptionController;
+import use_case.toggle_display_option.*;
 import use_case.HistoryDataAccessInterface;
 import use_case.open_frame.OpenFrameInputBoundary;
 import use_case.open_frame.OpenFrameInteractor;
 import use_case.open_frame.OpenFrameOutputBoundary;
 import use_case.query.QueryDataAccessInterface;
-import use_case.star.StarDataAccessInterface;
 import use_case.switch_results_panel.SwitchResultsPanelInputBoundary;
 import use_case.switch_results_panel.SwitchResultsPanelInteractor;
 import use_case.switch_results_panel.SwitchResultsPanelOutputBoundary;
@@ -115,7 +114,9 @@ public class ControllerFactory {
     }
 
     ToggleDisplayOptionController createToggleDisplayOptionController() {
-        return null;
+        ToggleDisplayOptionOutputBoundary toggleDisplayOptionPresenter = new ToggleDisplayOptionPresenter();
+        ToggleDisplayOptionInputBoundary toggleDisplayOptionInteractor = new ToggleDisplayOptionInteractor(toggleDisplayOptionPresenter);
+        return new ToggleDisplayOptionController(toggleDisplayOptionInteractor);
     }
 
     OpenWebsiteController createOpenWebsiteController() {
