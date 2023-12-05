@@ -150,7 +150,9 @@ public class ControllerFactory {
     }
 
     LoadFromDAOController createLoadFromDAOController() {
-        return null;
+        LoadFromDAOOutputBoundary loadFromDAOPresenter = new LoadFromDAOPresenter(resultsPanelModels, searchViewModel, starredViewModel, historyViewModel);
+        LoadFromDAOInputBoundary loadFromDAOInteractor = new LoadFromDAOInteractor(loadFromDAOPresenter, queryDAO, starDAO, historyDAO);
+        return new LoadFromDAOController(loadFromDAOInteractor);
     }
 
     ToggleDisplayOptionController createToggleDisplayOptionController() {
