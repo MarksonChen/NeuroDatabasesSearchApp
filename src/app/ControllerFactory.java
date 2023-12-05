@@ -114,7 +114,7 @@ public class ControllerFactory {
     }
 
     ToggleDisplayOptionController createToggleDisplayOptionController() {
-        ToggleDisplayOptionOutputBoundary toggleDisplayOptionPresenter = new ToggleDisplayOptionPresenter();
+        ToggleDisplayOptionOutputBoundary toggleDisplayOptionPresenter = new ToggleDisplayOptionPresenter(searchViewModel, starredViewModel, resultsPanelModels);
         ToggleDisplayOptionInputBoundary toggleDisplayOptionInteractor = new ToggleDisplayOptionInteractor(toggleDisplayOptionPresenter);
         return new ToggleDisplayOptionController(toggleDisplayOptionInteractor);
     }
