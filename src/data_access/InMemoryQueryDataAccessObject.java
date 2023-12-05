@@ -84,10 +84,10 @@ public class InMemoryQueryDataAccessObject implements QueryDataAccessInterface {
     }
 
     @Override
-    public List<Integer> getQueryAllTotalResults() {
-        List<Integer> result = new ArrayList<>();;
+    public int[] getQueryAllTotalResults() {
+        int[] result = new int[DataListArr.length];
         for (int i = 0; i < DataListArr.length; i++) {
-            result.add(DataListArr[i].size());
+            result[i] = DataListArr[i].size();
         }
         return result;
     }
