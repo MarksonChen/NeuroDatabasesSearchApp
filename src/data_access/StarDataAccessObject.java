@@ -10,34 +10,61 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class StarDataAccessObject implements StarDataAccessInterface {
+    private final List<FetchedData> starredDataList;
+    private final String serializableFilePath;
+    public StarDataAccessObject(String serializableFilePath) throws IOException, ClassNotFoundException {
+        this.serializableFilePath = serializableFilePath;
+        if(!Files.exists(Path.of(serializableFilePath))){
+            starredDataList = new ArrayList<>();
+        } else {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(serializableFilePath));
+            starredDataList = (ArrayList<FetchedData>) ois.readObject();
+        }
+    }
 
     @Override
     public void toggleStar(FetchedData data) {
+        if(dataIsStarred(data)){
+            starredDataList.remove(data);
+        } else {
+            starredDataList.add(data);
+        }
 
     }
 
     @Override
     public List<Boolean> checkIfDataStarred(List<FetchedData> fetchedData) {
-        return null;
+        return fetchedData.stream().map(starredDataList::contains).collect(Collectors.toList());
     }
 
     @Override
     public List<Boolean>[] checkIfDataStarred(List<FetchedData>[] fetchedData) {
-        return new List[0];
+        List<Boolean>[] starredStateListArr = new List[Database.length];
+        for (int i = 0; i < Database.length; i++) {
+            starredStateListArr[i] = checkIfDataStarred(fetchedData[i]);
+        }
+        return starredStateListArr;
     }
 
     @Override
     public Boolean dataIsStarred(FetchedData data) {
-        return null;
+        return starredDataList.contains(data);
     }
 
     @Override
     public List<FetchedData> getStarredDataList() {
-        return null;
+        return starredDataList;
     }
 
     @Override
     public void saveStarredData() throws IOException {
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(serializableFilePath));
+        oos.writeObject(starredDataList);
+    }
 
+    @Override
+    public void clear() throws IOException {
+        starredDataList.clear();
+        saveStarredData();
     }
 }

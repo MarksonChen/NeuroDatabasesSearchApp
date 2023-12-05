@@ -25,6 +25,7 @@ import view.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,15 +102,20 @@ public class Main {
 
         new ViewManager(views, cardLayout, viewManagerModel); // Finished adding views
 
+
         Map<String, JFrame> frames = new HashMap<>();
         frames.put(MainFrameViewModel.VIEW_NAME, mainFrame);
-        new FrameManager(frameManagerModel, frames);
 
-        //TODO: StarredView, HistoryView
+        HistoryView historyView = new HistoryView(historyViewModel, switchViewController, reuseHistoryQueryController, clearHistoryController);
+        frames.put(HistoryViewModel.VIEW_NAME, historyView);
+
+        StarredView starredView = new StarredView(searchViewModel, starredViewModel, fillDetailController, starController, openWebsiteController);
+        frames.put(StarredViewModel.VIEW_NAME, starredView);
+
+        new FrameManager(frameManagerModel, frames);
 
         // there should be a loadFromDAOController.execute();
         // to load data from the 3 DAOs into history view, star view, and resultsPanels
-
 
         mainFrame.init();
         switchViewController.execute(FrontPageViewModel.VIEW_NAME);

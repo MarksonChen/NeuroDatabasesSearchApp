@@ -16,6 +16,11 @@ public class FrontPageView extends JPanel {
         JButton appTitle = new ImageButton(FrontPageViewModel.TITLE_BUTTON_IMAGE_PATH, FrontPageViewModel.TITLE_BUTTON_IMAGE_SCALE);
         JButton searchButton = new ImageButton(FrontPageViewModel.SEARCH_BUTTON_IMAGE_PATH, FrontPageViewModel.SEARCH_BUTTON_IMAGE_SCALE);
 
+
+
+        searchButton.addActionListener(evt -> {
+            switchViewController.execute(SearchViewModel.VIEW_NAME);
+        });
         appTitle.addActionListener(evt ->
                 openWebsiteController.execute(FrontPageViewModel.TITLE_BUTTON_REDIRECT_URL)
         );
