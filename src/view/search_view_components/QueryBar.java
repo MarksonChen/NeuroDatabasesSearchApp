@@ -33,7 +33,7 @@ public class QueryBar extends JPanel {
         this.switchResultsPanelController = switchResultsPanelController;
         this.queryAllController = queryAllController;
         this.queryOneController = queryOneController;
-        switchViewButton = new ImageButton(SearchViewModel.BACK_BUTTON_IMAGE_PATH, SearchViewModel.BACK_BUTTON_IMAGE_SCALE);
+        switchViewButton = new JButton("ᐊ"); // or ❮
         switchViewButton.setBorder(null);
         switchViewButton.setFocusPainted(false);
         switchViewButton.setPreferredSize(new Dimension(25, 25));
@@ -61,11 +61,33 @@ public class QueryBar extends JPanel {
     private void addListeners() {
         switchViewButton.addActionListener(e ->
                 switchViewController.execute(FrontPageViewModel.VIEW_NAME));
+        searchButton.addActionListener(e -> performSearch(searchViewModel, queryAllController, queryOneController));
+        searchField.addActionListener(e -> performSearch(searchViewModel, queryAllController, queryOneController));
+        searchField.addKeyListener(
+                new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {
+                        SearchViewState currentState = searchViewModel.getState();
+                        String text = searchField.getText() + e.getKeyChar();
+                        currentState.setSearchFieldText(text);
+//                        searchViewModel.setState(currentState);
+                    }
+                    @Override
+                    public void keyPressed(KeyEvent e) { }
+                    @Override
+                    public void keyReleased(KeyEvent e) { }
+                });
+        databasesComboBox.addActionListener(e -> {
+            SearchViewState currentState = searchViewModel.getState();
+            String databaseOption = (String) databasesComboBox.getSelectedItem();
+            currentState.setDatabaseOption(databaseOption);
+            switchResultsPanelController.execute(databaseOption);
+        });
     }
     private static void performSearch(SearchViewModel searchViewModel, QueryAllController queryAllController, QueryOneController queryOneController){
         SearchViewState state = searchViewModel.getState();
         String option = state.getDatabaseOption();
-        if (option.equals(SearchViewModel.ALL_DATABASES)){
+            if (option.equals(SearchViewModel.ALL_DATABASES)){
             queryAllController.execute(state.getSearchFieldText(), state.getResultsPerPage());
         } else{
             queryOneController.execute(Database.valueOf(option), state.getSearchFieldText(), state.getResultsPerPage(), 1);

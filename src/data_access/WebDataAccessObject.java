@@ -15,20 +15,12 @@ public class WebDataAccessObject implements WebDataAccessInterface {
     private final OkHttpClient client;
     private final Desktop desktop;
 
-    /**
-     * construct an WebDAO object.
-     */
     public WebDataAccessObject() {
         client = new OkHttpClient().newBuilder()
                 .build();
         desktop = Desktop.getDesktop();
     }
 
-    /**
-     * @param path is the url
-     * @return content of it
-     * @throws IOException
-     */
     @Override
     public String getResponse(String path) throws IOException {
         Request request = new Request.Builder()
@@ -39,12 +31,6 @@ public class WebDataAccessObject implements WebDataAccessInterface {
         return response.body().string();
     }
 
-    /**
-     * It opens the web site in brower
-     * @param path is the url
-     * @throws URISyntaxException
-     * @throws IOException
-     */
     @Override
     public void openWebsite(String path) throws URISyntaxException, IOException {
         desktop.browse(new URI(path));

@@ -1,10 +1,15 @@
 package use_case.open_website;
 
-import use_case.open_website.OpenWebsiteInputBoundary;
+import use_case.open_frame.OpenFrameInputBoundary;
 
 public class OpenWebsiteController {
 
-    public void execute(String url) {
+    private final OpenWebsiteInputBoundary openWebsiteInteractor;
 
+    public OpenWebsiteController(OpenWebsiteInputBoundary openWebsiteInteractor) {
+        this.openWebsiteInteractor = openWebsiteInteractor;
     }
+
+
+    public void execute(String url) {openWebsiteInteractor.execute(url);}
 }
