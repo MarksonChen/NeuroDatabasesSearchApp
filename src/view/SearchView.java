@@ -72,7 +72,8 @@ public class SearchView extends JPanel implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         SearchViewState state = searchViewModel.getState();
         switch (evt.getPropertyName()){
-            // TODO: ReuseHistoryQuery;  refreshing; displaying errors
+            // TODO: ReuseHistoryQuery; SwitchResultsPanel; refreshing; displaying errors
+            case SearchViewModel.ERROR -> JOptionPane.showMessageDialog(this, state.getErrorMessage());
             case SearchViewModel.RESULTS_PANEL_SWITCHED -> {
                 cardLayout.show(resultsPanel, state.getDatabaseOption());
                 optionBar.makePanels();

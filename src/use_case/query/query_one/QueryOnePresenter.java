@@ -10,14 +10,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QueryOnePresenter implements QueryOneOutputBoundary {
+    private final SearchViewModel searchViewModel;
+    private final Map<Database, ScrollResultsPanelModel> resultsPanelModelsMap;
+
+    public QueryOnePresenter(SearchViewModel searchViewModel, ScrollResultsPanelModel[] resultsPanelModels) {
+        this.searchViewModel = searchViewModel;
+        this.resultsPanelModelsMap = new HashMap<>();
+        for(int i =0; i < Database.length; i++){
+            resultsPanelModelsMap.put(Database.get(i), resultsPanelModels[i]);
+        }
+    }
 
     @Override
     public void prepareSuccessView(QueryOneOutputData outputData) {
+        ScrollResultsPanelModel model = resultsPanelModelsMap.get(outputData.getDatabase());
+        ScrollResultsPanelState state = model.getState();
 
+        state.setFetchedDataList(outputData.getFetchedData());
+        state.setTotalResults(outputData.getQueryOneTotalResults());
+        state.setCurrentPage(outputData.getPage());
+        state.setLastQuery(outputData.getQueryKeyword());
+        state.setDataIsStarredList(outputData.getDataStarredStateList());
+
+        model.firePropertyChanged(ScrollResultsPanelModel.REFRESH_ALL);
     }
 
     @Override
     public void prepareFailView(String errorMessage) {
-
+        searchViewModel.getState().setErrorMessage(errorMessage);
+        searchViewModel.firePropertyChanged(SearchViewModel.ERROR);
     }
 }
