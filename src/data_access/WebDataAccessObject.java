@@ -12,13 +12,27 @@ import java.net.URISyntaxException;
 
 public class WebDataAccessObject implements WebDataAccessInterface {
 
+    private final OkHttpClient client;
+    private final Desktop desktop;
+
+    public WebDataAccessObject() {
+        client = new OkHttpClient().newBuilder()
+                .build();
+        desktop = Desktop.getDesktop();
+    }
+
     @Override
     public String getResponse(String path) throws IOException {
-        return null;
+        Request request = new Request.Builder()
+                .url(path)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        return response.body().string();
     }
 
     @Override
     public void openWebsite(String path) throws URISyntaxException, IOException {
-
+        desktop.browse(new URI(path));
     }
 }

@@ -23,7 +23,10 @@ public class MainFrame extends JFrame implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // TODO: Potentially used for displaying error messages
+        MainFrameViewState mainFrameViewState = mainFrameViewModel.getState();
+        if(evt.getPropertyName().equals(MainFrameViewModel.ERROR)){
+            JOptionPane.showMessageDialog(this, mainFrameViewState.getERROR_MESSAGE());
+        }
     }
 
     public void init() {

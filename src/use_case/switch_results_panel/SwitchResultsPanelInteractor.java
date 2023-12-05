@@ -2,7 +2,13 @@ package use_case.switch_results_panel;
 
 public class SwitchResultsPanelInteractor implements SwitchResultsPanelInputBoundary {
 
-    public void execute(String databaseOption) {
+    private final SwitchResultsPanelOutputBoundary switchResultsPanelPresenter;
 
+    public SwitchResultsPanelInteractor(SwitchResultsPanelOutputBoundary switchResultsPanelPresenter) {
+        this.switchResultsPanelPresenter = switchResultsPanelPresenter;
+    }
+
+    public void execute(String databaseOption) {
+        switchResultsPanelPresenter.switchResultsPanel(databaseOption);
     }
 }
