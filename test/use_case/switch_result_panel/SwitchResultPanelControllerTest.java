@@ -20,6 +20,7 @@ public class SwitchResultPanelControllerTest {
             }
         };
         SwitchResultsPanelInputBoundary switchResultsPanelInteractor = new SwitchResultsPanelInteractor(mockPresenter);
-        switchResultsPanelInteractor.execute(inputData);
+        SwitchResultsPanelController switchResultsPanelController = new SwitchResultsPanelController(switchResultsPanelInteractor);
+        switchResultsPanelController.execute(inputData);
     }
 }
