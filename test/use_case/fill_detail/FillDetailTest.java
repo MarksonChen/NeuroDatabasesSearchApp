@@ -9,11 +9,12 @@ import use_case.query.QueryDataAccessInterface;
 import use_case.star.StarDataAccessInterface;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FillDetailTest {
     private FillDetailController controller;
-//    private TestFillDetailInteractor testInteractor;
+    //    private TestFillDetailInteractor testInteractor;
     private FillDetailInteractor interactor;
     private WebDataAccessObject webDAO;
     private ModelDBDataAccessObject modelDBDAO;
@@ -41,6 +42,7 @@ public class FillDetailTest {
     public void setUp() throws IOException, ClassNotFoundException {
         fillDetailPresenter = new TestFillDetailOutputBoundary();
         webDAO = new WebDataAccessObject();
+        queryDAO = new InMemoryQueryDataAccessObject(new CacheDataAccessObject(), "resources/serializables/fetchedDataListArr.ser");
         queryDAO = new QueryDataAccessObject(new CacheDataAccessObject(), webDAO);
         starDAO = new StarDataAccessObject("resources/serializables/starredData.ser");
         interactor = new FillDetailInteractor(fillDetailPresenter, queryDAO, starDAO);
@@ -64,6 +66,71 @@ public class FillDetailTest {
         FetchedData data = result.get(0);
         starDAO.toggleStar(data);
         controller.execute(data);
+    }
+
+    @Test
+    public void testQueryDAOIOException() throws IOException {
+        QueryDataAccessInterface queryDAOEx = new QueryDataAccessObject(new CacheDataAccessObject(), webDAO){
+            @Override
+            public FetchedData fillDetails(FetchedData data) throws IOException {
+                throw new IOException();
+            }
+        };
+        FillDetailInteractor interactorEx = new FillDetailInteractor(fillDetailPresenter, queryDAOEx, starDAO);
+        FillDetailController controllerEx = new FillDetailController(interactorEx);
+
+        List<FetchedData> result = modelDBDAO.query(query, 1, 1);
+        FetchedData data = result.get(0);
+        controllerEx.execute(data);
+
+        assert fillDetailPresenter.failureCalled;
+    }
+
+    @Test
+    public void testStarDAOIOException() throws IOException{
+        StarDataAccessInterface starDAOEx = new StarDataAccessInterface(){
+            private final List<FetchedData> starredDataList = new ArrayList<>();
+
+            @Override
+            public void toggleStar(FetchedData data) {
+                starredDataList.add(data);
+            }
+
+            @Override
+            public List<Boolean> checkIfDataStarred(List<FetchedData> fetchedData) {
+                return null;
+            }
+
+            @Override
+            public List<Boolean>[] checkIfDataStarred(List<FetchedData>[] fetchedData) {
+                return null;
+            }
+
+            @Override
+            public Boolean dataIsStarred(FetchedData data) {
+                return null;
+            }
+
+            @Override
+            public List<FetchedData> getStarredDataList() {
+                return starredDataList;
+            }
+
+            @Override
+            public void saveStarredData() throws IOException {
+                throw new IOException();
+            }
+            @Override
+            public void clear() throws IOException {}
+        };
+        FillDetailInteractor interactorEx = new FillDetailInteractor(fillDetailPresenter, queryDAO, starDAOEx);
+        FillDetailController controllerEx = new FillDetailController(interactorEx);
+
+        List<FetchedData> result = modelDBDAO.query(query, 1, 1);
+        FetchedData data = result.get(0);
+
+        starDAOEx.toggleStar(data);
+        controllerEx.execute(data);
     }
 }
 
