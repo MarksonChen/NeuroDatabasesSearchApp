@@ -50,12 +50,24 @@ public class Main {
         //DAOs
         WebDataAccessInterface webDAO = new WebDataAccessObject();
         CacheDataAccessInterface dataCacheDAO = new CacheDataAccessObject();
-        //TODO: InMemory QueryDAO, StarDAO, HistoryDAO
-        QueryDataAccessInterface queryDAO = null;
 
-        StarDataAccessInterface starDAO = null;
+        // Switch between InMemoryQueryDAO (for testing & development only) and real QueryDAO here
+//        QueryDataAccessInterface queryDAO = new QueryDataAccessObject(dataCacheDAO, webDAO);
+        QueryDataAccessInterface queryDAO = loadInMemoryQueryDAO(dataCacheDAO);
 
-        HistoryDataAccessInterface historyDAO = null;
+        StarDataAccessInterface starDAO;
+        try {
+            starDAO = new StarDataAccessObject("resources/serializables/starredData.ser");
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        HistoryDataAccessInterface historyDAO;
+        try {
+            historyDAO = new HistoryDataAccessObject("resources/serializables/historyQueries.ser");
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         //Controllers
         ControllerFactory factory = new ControllerFactory(searchViewModel, frontPageViewModel, starredViewModel, historyViewModel,
@@ -114,9 +126,7 @@ public class Main {
 
         new FrameManager(frameManagerModel, frames);
 
-        // there should be a loadFromDAOController.execute();
-        // to load data from the 3 DAOs into history view, star view, and resultsPanels
-
+        loadFromDAOController.execute();
         mainFrame.init();
         switchViewController.execute(FrontPageViewModel.VIEW_NAME);
     }
@@ -129,6 +139,15 @@ public class Main {
         UIManager.getLookAndFeelDefaults()
                 .put("defaultFont", new Font("Helventica", Font.PLAIN, 15));
 //        System.setProperty("flatlaf.uiScale", "1.5");
+    }
+
+    private static QueryDataAccessInterface loadInMemoryQueryDAO(CacheDataAccessInterface dataCacheDAO) {
+        try {
+            return new InMemoryQueryDataAccessObject(dataCacheDAO, "resources/serializables/fetchedDataListArr.ser");
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Load FetchedData failed. Need to update FetchedDta.ser files.");
+            throw new RuntimeException(e);
+        }
     }
 
 }
