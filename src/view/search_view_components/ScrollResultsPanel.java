@@ -88,6 +88,10 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
             }
         }
     }
+    private void queryForNewPage() {
+        ScrollResultsPanelState state = model.getState();
+        queryOneController.execute(model.getDatabase(), state.getLastQueryKeywords(), state.getResultsPerPage(), state.getCurrentPage());
+    }
 
     public void displayPage(List<FetchedData> fetchedData, List<Boolean> dataIsStarredList, int totalResults, int resultsPerPage, int currentPage){
         // Precondition: currentPage is a valid page

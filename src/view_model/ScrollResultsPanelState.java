@@ -65,4 +65,8 @@ public class ScrollResultsPanelState {
         int index = fetchedDataList.indexOf(data);
         dataIsStarredList.set(index, !dataIsStarredList.get(index));
     }
+
+    public String getLastQueryKeywords() {
+        return lastQuery;
+    }
 }
