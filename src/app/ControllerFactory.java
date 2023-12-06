@@ -1,15 +1,15 @@
 package app;
 
-import use_case.clear_history.ClearHistoryController;
+import use_case.clear_history.*;
 import use_case.fill_detail.FillDetailController;
-import use_case.load_from_DAO.LoadFromDAOController;
+import use_case.load_from_DAO.*;
 import use_case.open_frame.OpenFrameController;
 import use_case.open_frame.OpenFramePresenter;
 import use_case.open_website.*;
-import use_case.query.query_all.QueryAllController;
-import use_case.query.query_one.QueryOneController;
+import use_case.query.query_all.*;
+import use_case.query.query_one.*;
 import use_case.reuse_history_query.ReuseHistoryQueryController;
-import use_case.star.StarController;
+import use_case.star.*;
 import use_case.switch_results_panel.SwitchResultsPanelController;
 import use_case.switch_results_panel.SwitchResultsPanelPresenter;
 import use_case.switch_view.SwitchViewController;
@@ -20,7 +20,6 @@ import use_case.open_frame.OpenFrameInputBoundary;
 import use_case.open_frame.OpenFrameInteractor;
 import use_case.open_frame.OpenFrameOutputBoundary;
 import use_case.query.QueryDataAccessInterface;
-import use_case.star.StarDataAccessInterface;
 import use_case.switch_results_panel.SwitchResultsPanelInputBoundary;
 import use_case.switch_results_panel.SwitchResultsPanelInteractor;
 import use_case.switch_results_panel.SwitchResultsPanelOutputBoundary;
@@ -83,11 +82,15 @@ public class ControllerFactory {
     }
 
     QueryAllController createQueryAllController() {
-        return null;
+        QueryAllOutputBoundary queryPresenter = new QueryAllPresenter(searchViewModel, resultsPanelModels, historyViewModel);
+        QueryAllInputBoundary queryInteractor = new QueryAllInteractor(queryPresenter, queryDAO, starDAO, historyDAO);
+        return new QueryAllController(queryInteractor);
     }
 
     QueryOneController createQueryOneController() {
-        return null;
+        QueryOneOutputBoundary queryPresenter = new QueryOnePresenter(searchViewModel, resultsPanelModels, historyViewModel);
+        QueryOneInputBoundary queryInteractor = new QueryOneInteractor(queryPresenter, queryDAO, starDAO, historyDAO);
+        return new QueryOneController(queryInteractor);
     }
 
     FillDetailController createFillDetailController() {
@@ -111,7 +114,9 @@ public class ControllerFactory {
     }
 
     LoadFromDAOController createLoadFromDAOController() {
-        return null;
+        LoadFromDAOOutputBoundary loadFromDAOPresenter = new LoadFromDAOPresenter(resultsPanelModels, searchViewModel, starredViewModel, historyViewModel);
+        LoadFromDAOInputBoundary loadFromDAOInteractor = new LoadFromDAOInteractor(loadFromDAOPresenter, queryDAO, starDAO, historyDAO);
+        return new LoadFromDAOController(loadFromDAOInteractor);
     }
 
     ToggleDisplayOptionController createToggleDisplayOptionController() {
