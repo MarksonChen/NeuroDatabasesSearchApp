@@ -56,13 +56,13 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         prevButton.addActionListener(e ->{
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() - 1);
-            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+            this.queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
         });
 
         prevButton.addActionListener(e ->{
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() + 1);
-            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+            this.queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
         });
     }
 
@@ -70,7 +70,12 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
     public void propertyChange(PropertyChangeEvent evt) {
         ScrollResultsPanelState state = (ScrollResultsPanelState) evt.getNewValue();
         switch (evt.getPropertyName()) {
-            // TODO: as part of the various use cases!!
+            case ScrollResultsPanelModel.REFRESH_DATA_INFO_PANEL -> {
+                List<FetchedData> fetchedDataList = state.getFetchedDataList();
+                for (int i = 0; i < fetchedDataList.size(); i++) {
+                    resultPanels[i].updateDataInfoPanel(fetchedDataList.get(i));
+                }
+            }
             case ScrollResultsPanelModel.REFRESH_ALL -> {
                 displayPage(state.getFetchedDataList(), state.getDataIsStarredList(), state.getTotalResults(), state.getResultsPerPage(), state.getCurrentPage());
             }
