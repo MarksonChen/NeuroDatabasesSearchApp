@@ -53,13 +53,13 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         prevButton = new JButton(SearchViewModel.PREV_BUTTON_LABEL);
         nextButton = new JButton(SearchViewModel.NEXT_BUTTON_LABEL);
 
-        prevButton.addActionListener(e ->{
+        prevButton.addActionListener(e -> {
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() - 1);
             queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
         });
 
-        prevButton.addActionListener(e ->{
+        prevButton.addActionListener(e -> {
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() + 1);
             queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
