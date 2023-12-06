@@ -126,9 +126,7 @@ public class Main {
 
         new FrameManager(frameManagerModel, frames);
 
-        // there should be a loadFromDAOController.execute();
-        // to load data from the 3 DAOs into history view, star view, and resultsPanels
-
+        loadFromDAOController.execute();
         mainFrame.init();
         switchViewController.execute(FrontPageViewModel.VIEW_NAME);
     }
