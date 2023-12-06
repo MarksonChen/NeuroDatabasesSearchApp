@@ -56,13 +56,13 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
         prevButton.addActionListener(e ->{
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() - 1);
-            this.queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
         });
 
         prevButton.addActionListener(e ->{
             ScrollResultsPanelState state = model.getState();
             state.setCurrentPage(state.getCurrentPage() + 1);
-            this.queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
+            queryOneController.execute(model.getDatabase(), state.getLastQuery(), state.getResultsPerPage(), state.getCurrentPage());
         });
     }
 
@@ -88,11 +88,6 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
             }
         }
     }
-    private void queryForNewPage() {
-        ScrollResultsPanelState state = model.getState();
-        queryOneController.execute(model.getDatabase(), state.getLastQueryKeywords(), state.getResultsPerPage(), state.getCurrentPage());
-    }
-
     public void displayPage(List<FetchedData> fetchedData, List<Boolean> dataIsStarredList, int totalResults, int resultsPerPage, int currentPage){
         // Precondition: currentPage is a valid page
         // The precondition is always held since the prevButton and nextButton
