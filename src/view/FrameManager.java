@@ -20,7 +20,7 @@ public class FrameManager implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (evt.getPropertyName().equals(FrameManagerModel.Open)) {
+        if (evt.getPropertyName().equals(FrameManagerModel.OPEN)) {
             String frameName = (String) evt.getNewValue();
             JFrame jFrame = frame.get(frameName);
             jFrame.setLocationRelativeTo(null);
