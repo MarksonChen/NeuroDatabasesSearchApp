@@ -14,7 +14,7 @@ import use_case.switch_results_panel.SwitchResultsPanelController;
 import use_case.switch_results_panel.SwitchResultsPanelPresenter;
 import use_case.switch_view.SwitchViewController;
 import use_case.switch_view.SwitchViewPresenter;
-import use_case.toggle_display_option.ToggleDisplayOptionController;
+import use_case.toggle_display_option.*;
 import use_case.HistoryDataAccessInterface;
 import use_case.open_frame.OpenFrameInputBoundary;
 import use_case.open_frame.OpenFrameInteractor;
@@ -120,7 +120,9 @@ public class ControllerFactory {
     }
 
     ToggleDisplayOptionController createToggleDisplayOptionController() {
-        return null;
+        ToggleDisplayOptionOutputBoundary toggleDisplayOptionPresenter = new ToggleDisplayOptionPresenter(searchViewModel, starredViewModel, resultsPanelModels);
+        ToggleDisplayOptionInputBoundary toggleDisplayOptionInteractor = new ToggleDisplayOptionInteractor(toggleDisplayOptionPresenter);
+        return new ToggleDisplayOptionController(toggleDisplayOptionInteractor);
     }
 
     OpenWebsiteController createOpenWebsiteController() {
