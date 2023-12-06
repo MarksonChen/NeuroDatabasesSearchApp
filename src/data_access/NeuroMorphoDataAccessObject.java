@@ -53,16 +53,12 @@ public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
                 + joinJSONArray(entry.getJSONArray("cell_type"));
         String id = entry.getString("neuron_name");
         LinkedHashMap<String, String> details = new LinkedHashMap<>();
-        for (int i = 0; i < entry.length(); i++){
-            String content;
-            if (Objects.equals(entryKeys[i], "reference_doi")){
-                content = entry.getJSONArray(entryKeys[i]).getString(0);
-            }
-            else content = entry.getString(entry.getString(entryKeys[i]));
-            details.put(entryKeys[i], content);
-        }
+        details.put(entryKeys[0], entry.getString("species"));
+        details.put(entryKeys[1], entry.getString("strain"));
+        details.put(entryKeys[2], entry.getString("soma_surface"));
+        details.put(entryKeys[3], entry.getString("volume"));
+        details.put(entryKeys[4], entry.getJSONArray("reference_doi").getString(0));
         return new FetchedData(title, id, getURL(id), Database.NeuroMorpho, details);
-
     }
 
     private String joinJSONArray(JSONArray jsonArr) {
@@ -103,7 +99,7 @@ public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
         if (responseJson.has("fields")) {
             JSONArray fieldArray = responseJson.getJSONArray("fields");
             for (int i = 0; i < fieldArray.length(); i++) {
-                brainRegions.add(fieldArray.getString(i));
+                brainRegions.add(fieldArray.getString(i).toLowerCase());
             }
         }
     }
@@ -114,7 +110,7 @@ public class NeuroMorphoDataAccessObject implements DatabaseDataAcecssInterface{
         if (responseJson.has("fields")) {
             JSONArray fieldArray = responseJson.getJSONArray("fields");
             for (int i = 0; i < fieldArray.length(); i++) {
-                cellTypes.add(fieldArray.getString(i));
+                cellTypes.add(fieldArray.getString(i).toLowerCase());
             }
         }
     }

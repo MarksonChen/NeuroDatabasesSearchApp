@@ -1,11 +1,12 @@
 package use_case.query.query_all;
 
-import use_case.query.query_all.QueryAllInputBoundary;
-import use_case.query.query_all.QueryAllInputData;
-
 public class QueryAllController {
+    private final QueryAllInputBoundary queryAllInteractor;
+
+    public QueryAllController(QueryAllInputBoundary queryAllInteractor) {this.queryAllInteractor = queryAllInteractor;}
 
     public void execute(String keywords, int resultsPerPage) {
-
+        QueryAllInputData queryAllInputData = new QueryAllInputData(keywords, resultsPerPage);
+        queryAllInteractor.execute(queryAllInputData);
     }
 }
