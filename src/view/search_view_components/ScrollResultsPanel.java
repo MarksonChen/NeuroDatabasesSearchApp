@@ -80,7 +80,12 @@ public class ScrollResultsPanel extends JScrollPane implements PropertyChangeLis
                 displayPage(state.getFetchedDataList(), state.getDataIsStarredList(), state.getTotalResults(), state.getResultsPerPage(), state.getCurrentPage());
             }
             // Query Success Action
-
+            case ScrollResultsPanelModel.REFRESH_STAR_STATES -> {
+                List<Boolean> dataIsStarredList = state.getDataIsStarredList();
+                for (int i = 0; i < dataIsStarredList.size(); i++) {
+                    resultPanels[i].toggleStar(dataIsStarredList.get(i));
+                }
+            }
         }
     }
 
