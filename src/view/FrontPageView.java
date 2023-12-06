@@ -21,6 +21,11 @@ public class FrontPageView extends JPanel {
         searchButton.addActionListener(evt -> {
             switchViewController.execute(SearchViewModel.VIEW_NAME);
         });
+        appTitle.addActionListener(evt ->
+                openWebsiteController.execute(FrontPageViewModel.TITLE_BUTTON_REDIRECT_URL)
+        );
+
+        // TODO add listeners
 
         searchButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         appTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
