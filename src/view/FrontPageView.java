@@ -25,8 +25,6 @@ public class FrontPageView extends JPanel {
                 openWebsiteController.execute(FrontPageViewModel.TITLE_BUTTON_REDIRECT_URL)
         );
 
-        // TODO add listeners
-
         searchButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         appTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
