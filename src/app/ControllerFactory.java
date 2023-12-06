@@ -1,14 +1,14 @@
 package app;
 
 import use_case.clear_history.*;
-import use_case.fill_detail.FillDetailController;
+import use_case.fill_detail.*;
 import use_case.load_from_DAO.*;
 import use_case.open_frame.OpenFrameController;
 import use_case.open_frame.OpenFramePresenter;
 import use_case.open_website.*;
 import use_case.query.query_all.*;
 import use_case.query.query_one.*;
-import use_case.reuse_history_query.ReuseHistoryQueryController;
+import use_case.reuse_history_query.*;
 import use_case.star.*;
 import use_case.switch_results_panel.SwitchResultsPanelController;
 import use_case.switch_results_panel.SwitchResultsPanelPresenter;
@@ -94,7 +94,9 @@ public class ControllerFactory {
     }
 
     FillDetailController createFillDetailController() {
-        return null;
+        FillDetailOutputBoundary fillDetailPresenter = new FillDetailPresenter(resultsPanelModels, starredViewModel, mainFrameViewModel);
+        FillDetailInputBoundary fillDetailInteractor = new FillDetailInteractor(fillDetailPresenter, queryDAO, starDAO);
+        return new FillDetailController(fillDetailInteractor);
     }
 
     StarController createStarController() {
@@ -110,7 +112,9 @@ public class ControllerFactory {
     }
 
     ReuseHistoryQueryController createReuseHistoryQueryController() {
-        return null;
+        ReuseHistoryQueryOutputBoundary reuseHistoryQueryPresenter = new ReuseHistoryQueryPresenter(frameManagerModel, viewManagerModel, historyViewModel, searchViewModel);
+        ReuseHistoryQueryInputBoundary reuseHistoryQueryInteractor = new ReuseHistoryQueryInteractor(reuseHistoryQueryPresenter);
+        return new ReuseHistoryQueryController(reuseHistoryQueryInteractor);
     }
 
     LoadFromDAOController createLoadFromDAOController() {

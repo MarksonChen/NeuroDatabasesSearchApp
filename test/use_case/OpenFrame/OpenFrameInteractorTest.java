@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OpenFrameInteractorTest {
     @Test
     void execute(){
-        String inputdata = FrameManagerModel.Open;
+        String inputdata = FrameManagerModel.OPEN;
         OpenFrameOutputBoundary mockpresenter = new OpenFrameOutputBoundary() {
             @Override
             public void openFrame(String viewName) {assertEquals(viewName, inputdata);}

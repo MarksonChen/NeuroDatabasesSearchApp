@@ -36,17 +36,20 @@ public class QueryOneInteractor implements QueryOneInputBoundary{
             return;
         }
 
+        historyDAO.add(query);
+        try {
+            historyDAO.saveToFile();
+        } catch (IOException e) {
+            e.printStackTrace(); // No need to push an alert if this automatic process is not working
+        }
 
         try {
-            historyDAO.add(query);
-            historyDAO.saveToFile();
             List<FetchedData> fetchedData = queryDAO.queryOne(inputData.getDatabase(), query, inputData.getResultPerPage(), inputData.getPage());
             List<Boolean> dataStarredStateList = starDAO.checkIfDataStarred(fetchedData);
             List<Query> historyQueryList = historyDAO.getHistoryQueryList();
-            QueryOneOutputData Output = new QueryOneOutputData(inputData.getDatabase(), fetchedData, dataStarredStateList, historyQueryList, queryDAO.getQueryOneTotalResults(), inputData.getPage(), inputData.getKeywords());
-            queryPresent.prepareSuccessView(Output);
-        }
-        catch (IOException e){
+            QueryOneOutputData outputData = new QueryOneOutputData(inputData.getDatabase(), fetchedData, dataStarredStateList, historyQueryList, queryDAO.getQueryOneTotalResults(), inputData.getPage(), inputData.getKeywords());
+            queryPresent.prepareSuccessView(outputData);
+        } catch (IOException e){
             queryPresent.prepareFailView("Error: Happened while fetching query on \""+ inputData.getKeywords() + "\"");
         }
     }
