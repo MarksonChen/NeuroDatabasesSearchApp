@@ -52,8 +52,8 @@ public class Main {
         CacheDataAccessInterface dataCacheDAO = new CacheDataAccessObject();
 
         // Switch between InMemoryQueryDAO (for testing & development only) and real QueryDAO here
-//        QueryDataAccessInterface queryDAO = new QueryDataAccessObject(dataCacheDAO, webDAO);
-        QueryDataAccessInterface queryDAO = loadInMemoryQueryDAO(dataCacheDAO);
+        QueryDataAccessInterface queryDAO = new QueryDataAccessObject(dataCacheDAO, webDAO);
+//        QueryDataAccessInterface queryDAO = loadInMemoryQueryDAO(dataCacheDAO);
 
         StarDataAccessInterface starDAO;
         try {
