@@ -21,9 +21,9 @@ public class ResultPanel extends JPanel {
     public ResultPanel(SearchViewModel searchViewModel, LinkedHashMap<String, Boolean> detailsDisplayed, FetchedData data, Boolean isStarred, FillDetailController fillDetailController, StarController starController, OpenWebsiteController openWebsiteController) {
         this.detailsDisplayed = detailsDisplayed;
         starButton = new StarButton(isStarred);
+        starButton.addActionListener(e -> starController.execute(data));
         queryButton = new JButton(SearchViewModel.QUERY_BUTTON_LABEL);
-
-        // TODO add listeners
+        queryButton.addActionListener(e -> fillDetailController.execute(data));
 
         OpenWebsiteTitleButton titleButton = new OpenWebsiteTitleButton(data.getTitle(), data.getURL(), openWebsiteController);
 

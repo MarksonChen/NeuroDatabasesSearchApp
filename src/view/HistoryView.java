@@ -37,7 +37,12 @@ public class HistoryView extends JFrame implements PropertyChangeListener {
         add(new JScrollPane(contentPanel));
 
         JMenu clearHistoryMenuButton = new JMenu(HistoryView.CLEAR_HISTORY_MENU_BUTTON_LABEL);
-
+        clearHistoryMenuButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clearHistoryController.execute();
+            }
+        });
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(clearHistoryMenuButton);

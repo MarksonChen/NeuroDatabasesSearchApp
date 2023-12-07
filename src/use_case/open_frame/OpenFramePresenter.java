@@ -21,7 +21,7 @@ public class OpenFramePresenter implements OpenFrameOutputBoundary {
     @Override
     public void openFrame(String viewName) {
         frameManagerModel.setActiveView(viewName);
-        frameManagerModel.firePropertyChanged(FrameManagerModel.Open);
+        frameManagerModel.firePropertyChanged(FrameManagerModel.OPEN);
         if(Objects.equals(viewName, StarredViewModel.VIEW_NAME))
             starredViewModel.firePropertyChanged(StarredViewModel.REFRESH);
         else if (Objects.equals(viewName, HistoryViewModel.VIEW_NAME)) {

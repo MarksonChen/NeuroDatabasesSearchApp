@@ -13,6 +13,6 @@ public class StarButton extends JButton {
         setBorder(null);
     }
     public void toggleStar(Boolean isStarred) {
-        setText(isStarred? "⭐":"☆");
+        setText(isStarred? "★":"☆");
     }
 }

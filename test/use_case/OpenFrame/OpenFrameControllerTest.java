@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OpenFrameControllerTest {
     @Test
     void execute(){
-        String inputData = FrameManagerModel.Open;
+        String inputData = FrameManagerModel.OPEN;
         OpenFrameOutputBoundary mockPresenter = new OpenFrameOutputBoundary() {
             @Override
             public void openFrame(String viewName) {assertEquals(viewName, inputData);}
