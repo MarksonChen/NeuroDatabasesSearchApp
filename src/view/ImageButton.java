@@ -31,7 +31,7 @@ public class ImageButton extends JButton {
     }
 
     private static ImageIcon getScaledImageIcon(String imagePath, double scale) {
-        ImageIcon imageIcon = new ImageIcon(FrontPageView.class.getResource(imagePath));
+        ImageIcon imageIcon = new ImageIcon(imagePath);
         Image scaledImage = imageIcon.getImage().getScaledInstance(
                 (int)(imageIcon.getIconWidth() * scale),
                 (int)(imageIcon.getIconHeight() * scale), Image.SCALE_SMOOTH);

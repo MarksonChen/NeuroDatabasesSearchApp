@@ -1,6 +1,5 @@
 package view_model;
 
-import java.awt.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -13,12 +12,12 @@ public class SearchViewModel implements ObserverViewModel {
     public static final String REFRESH_OPTION_BAR = "Refresh Option Bar";
     public static final String ERROR = "Error";
     public static final String QUERY_BUTTON_LABEL = "Query for details";
-    public static final String SEARCH_BUTTON_IMAGE_PATH = "/icons/magnifier.png";
+    public static final String SEARCH_BUTTON_IMAGE_PATH = "resources/icons/magnifier.png";
     public static final String SEARCH_FIELD_HINT = "Search... (try \"hippocampus\", \"retina ganglion\", or \"neocortex\")";
     public static final double SEARCH_BUTTON_IMAGE_SCALE = 0.04;
     public static final String PREV_BUTTON_LABEL = "<Previous";
     public static final String NEXT_BUTTON_LABEL = "Next>";
-    public static final String BACK_BUTTON_IMAGE_PATH = "/icons/backArrow.png";
+    public static final String BACK_BUTTON_IMAGE_PATH = "resources/icons/backArrow.png";
     public static final double BACK_BUTTON_IMAGE_SCALE = 0.10;
     private final SearchViewState state = new SearchViewState();
 
